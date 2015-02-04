@@ -38,6 +38,7 @@ class TimerVC: UIViewController {
         
         //Set timer data
         setTimerData()
+        setTimerLabel()
         NSLog("Debate chosen: \(whichDebateChosen)")
     }
     
@@ -118,13 +119,25 @@ class TimerVC: UIViewController {
         NSLog("counter centiseconds: \(counterCentiseconds)")
     }
     
+    //Sets the timer label - is called by updateCounter
     func setTimerLabel()
     {
         var centiseconds = counterCentiseconds % 100
         var seconds = (counterCentiseconds / 100) % 60
         var minutes = (counterCentiseconds / 100) / 60
-        timercdString = String(format: "%02d:%02d:%02d", minutes, seconds, centiseconds)
+        if (timerStarted)
+        {
+            //When the timer has started
+            timercdString = String(format: "%02d:%02d:%02d", minutes, seconds, centiseconds)
+        }
+        else
+        {
+            timercdString = String(format:"%02d:00:00", centiseconds)
+            NSLog("Base timer label set")
+        }
+        
         timerLabel.text = timercdString
+        
     }
     
     override func didReceiveMemoryWarning() {
