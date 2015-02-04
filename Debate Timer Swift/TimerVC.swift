@@ -12,10 +12,14 @@ class TimerVC: UIViewController {
     
     //Debate Variables
     var whichDebateChosen = Int()
+    var policyTimes: [Int] = [8, 3, 8, 3, 8, 3, 8, 3, 5, 5, 5, 5]
+    var ldTimes: [Int] = [6, 3, 7, 3, 4, 6, 3]
+    var pfdTimes: [Int] = [1, 4, 3, 4, 4, 3, 2, 2, 3, 2, 2]
     
     //Timer Variables
     var timer = NSTimer()
-    var counterCentiseconds = 6000 //1 minute test
+    var counterCentiseconds = Int()
+    var speechCounter = 0
     var timercdString = String()
     var timerStarted = false
     
@@ -31,6 +35,10 @@ class TimerVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        //Set timer data
+        setTimerData()
+        NSLog("Debate chosen: \(whichDebateChosen)")
     }
     
     
@@ -40,11 +48,13 @@ class TimerVC: UIViewController {
         {
             runTimer()
             timerStarted = true
+            NSLog("Starting Timer")
         }
         else
         {
             stopTimer()
             timerButton.setTitle(timerButResumeStr, forState: UIControlState.Normal)
+            NSLog("Pausing Timer")
         }
     }
     
@@ -65,8 +75,7 @@ class TimerVC: UIViewController {
             counterCentiseconds--
             
             //Update label
-            timercdString = String(counterCentiseconds)
-            timerLabel.text = timercdString
+            setTimerLabel()
             
         }
         else
@@ -74,6 +83,13 @@ class TimerVC: UIViewController {
             //Timer has finished (counterCentiseconds has reached 0)
             
             stopTimer()
+            
+            speechCounter++
+            setTimerData()
+            
+            timerStarted = false
+            timerButton.setTitle(timerButStartStr, forState: UIControlState.Normal)
+            
             NSLog("Timer has finished")
         }
     }
@@ -82,6 +98,33 @@ class TimerVC: UIViewController {
     {
         timer.invalidate()
         timerStarted = false
+    }
+    
+    func setTimerData()
+    {
+        if (whichDebateChosen == 0)
+        {
+            counterCentiseconds = (policyTimes[speechCounter] * 6000)
+        }
+        else if (whichDebateChosen == 1)
+        {
+            counterCentiseconds = (ldTimes[speechCounter] * 6000)
+        }
+        else if (whichDebateChosen == 2)
+        {
+            counterCentiseconds = (pfdTimes[speechCounter] * 6000)
+        }
+        
+        NSLog("counter centiseconds: \(counterCentiseconds)")
+    }
+    
+    func setTimerLabel()
+    {
+        var centiseconds = counterCentiseconds % 100
+        var seconds = (counterCentiseconds / 100) % 60
+        var minutes = (counterCentiseconds / 100) / 60
+        timercdString = String(format: "%02d:%02d:%02d", minutes, seconds, centiseconds)
+        timerLabel.text = timercdString
     }
     
     override func didReceiveMemoryWarning() {

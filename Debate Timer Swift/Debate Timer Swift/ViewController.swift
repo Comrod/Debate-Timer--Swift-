@@ -50,7 +50,8 @@ class ViewController: UIViewController {
 
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "toTimerSegue")
+        
+        if (segue.identifier == "segueToTimer")
         {
             //Pass variables between View Controllers
             let tVC = segue.destinationViewController as TimerVC
