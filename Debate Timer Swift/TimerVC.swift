@@ -28,9 +28,12 @@ class TimerVC: UIViewController {
     var timerButPauseStr = "Pause Timer"
     var timerButResumeStr = "Resume Timer"
     
+    //Other Variables
+    var segueHomeStr = "segueToHome"
     
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var timerButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
     
     override func viewDidLoad()
     {
@@ -61,6 +64,11 @@ class TimerVC: UIViewController {
             timerButton.setTitle(timerButResumeStr, forState: UIControlState.Normal)
             NSLog("Pausing Timer")
         }
+    }
+    
+    @IBAction func backButTap(sender: AnyObject)
+    {
+        performSegueWithIdentifier(segueHomeStr, sender: self)
     }
     
     
@@ -149,6 +157,18 @@ class TimerVC: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        //If going back to the debate selection screen
+        if (segue.identifier == "segueToHome")
+        {
+            //Pass variables between View Controllers
+            let vC = segue.destinationViewController as ViewController
+            
+            
+        }
     }
     
 }
