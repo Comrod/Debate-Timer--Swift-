@@ -32,14 +32,18 @@ class TimerVC: UIViewController {
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var timerButton: UIButton!
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         //Set timer data
         setTimerData()
-        setTimerLabel()
+        
         NSLog("Debate chosen: \(whichDebateChosen)")
+        
+        setTimerLabel()
+        
     }
     
     
@@ -86,10 +90,12 @@ class TimerVC: UIViewController {
             stopTimer()
             
             speechCounter++
-            setTimerData()
             
             timerStarted = false
-            timerButton.setTitle(timerButStartStr, forState: UIControlState.Normal)
+            
+            setTimerData() //Sets timer for next speech
+            setTimerLabel() //Sets timer label minute place for the next speech
+            timerButton.setTitle(timerButStartStr, forState: UIControlState.Normal) //Sets timer button to be "Start Timer"
             
             NSLog("Timer has finished")
         }
@@ -119,7 +125,7 @@ class TimerVC: UIViewController {
         NSLog("counter centiseconds: \(counterCentiseconds)")
     }
     
-    //Sets the timer label - is called by updateCounter
+    //Sets the timer label - is called by updateCounter and viewDidLoad
     func setTimerLabel()
     {
         var centiseconds = counterCentiseconds % 100
@@ -132,8 +138,8 @@ class TimerVC: UIViewController {
         }
         else
         {
-            timercdString = String(format:"%02d:00:00", centiseconds)
-            NSLog("Base timer label set")
+            timercdString = String(format:"%02d:00:00", minutes)
+            NSLog("Base timer label set; centiseconds: \(minutes)")
         }
         
         timerLabel.text = timercdString
