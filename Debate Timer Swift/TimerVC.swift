@@ -231,6 +231,13 @@ class TimerVC: UIViewController {
     {
         NSLog("Picker: \(pickerData[row])")
         
+        return pickerData[row]
+    }
+    
+    //When a row in the picker is selected
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
+    {
+        //Effectively resets the timer because a new speech has been selected
         speechCounter = row
         if (timerStarted){
             stopTimer()
@@ -238,9 +245,9 @@ class TimerVC: UIViewController {
         setTimerData()
         setTimerLabel()
         setSpeechLabel()
-        
-        return pickerData[row]
+        timerButton.setTitle(timerButStartStr, forState: UIControlState.Normal)
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
