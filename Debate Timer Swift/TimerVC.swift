@@ -10,11 +10,16 @@ import UIKit
 
 class TimerVC: UIViewController {
     
+    //call setSpeechLabel
+    
     //Debate Variables
     var whichDebateChosen = Int()
-    var policyTimes: [Int] = [8, 3, 8, 3, 8, 3, 8, 3, 5, 5, 5, 5]
-    var ldTimes: [Int] = [6, 3, 7, 3, 4, 6, 3]
-    var pfdTimes: [Int] = [1, 4, 3, 4, 4, 3, 2, 2, 3, 2, 2]
+    var policyTimes: [Int] = [8, 3, 8, 3, 8, 3, 8, 3, 5, 5, 5, 5, 0]
+    var policySpeeches: [String] = ["1AC", "CX", "1NC", "CX", "2AC", "CX", "2NC", "CX", "1NR", "1AR", "2NR", "2AR", "Round Finished"]
+    var ldTimes: [Int] = [6, 3, 7, 3, 4, 6, 3, 0]
+    var ldSpeeches: [String] = ["AC", "CX", "NC (1NR)", "CX", "1AR", "NR (2NR)", "2AR", "Round Finished"]
+    var pfdTimes: [Int] = [1, 4, 3, 4, 4, 3, 2, 2, 3, 2, 2, 0]
+    var pfdSpeeches: [String] = ["Team A Constructive", "Team B Constructive", "Crossfire", "Team A Rebuttal", "Team B Rebuttal", "Crossfire", "Team A Summary", "Team B Summary", "Grand Crossfire", "Team A Final", "Team B Final", "Round Finished"]
     
     //Timer Variables
     var timer = NSTimer()
@@ -30,9 +35,11 @@ class TimerVC: UIViewController {
     
     //Other Variables
     var segueHomeStr = "segueToHome"
+    var speechLblStr = String()
     
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var timerButton: UIButton!
+    @IBOutlet weak var speechLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
     
     override func viewDidLoad()
@@ -46,6 +53,7 @@ class TimerVC: UIViewController {
         NSLog("Debate chosen: \(whichDebateChosen)")
         
         setTimerLabel()
+        setSpeechLabel()
         
     }
     
@@ -54,9 +62,17 @@ class TimerVC: UIViewController {
     {
         if (!timerStarted)
         {
-            runTimer()
-            timerStarted = true
-            NSLog("Starting Timer")
+            if (counterCentiseconds > 0)
+            {
+                runTimer()
+                timerStarted = true
+                NSLog("Starting Timer")
+            }
+            else
+            {
+                //Round is over because countercentiseconds will only be 0 when the last speech has finished
+                performSegueWithIdentifier(segueHomeStr, sender: self)
+            }
         }
         else
         {
@@ -103,6 +119,7 @@ class TimerVC: UIViewController {
             
             setTimerData() //Sets timer for next speech
             setTimerLabel() //Sets timer label minute place for the next speech
+            setSpeechLabel()
             timerButton.setTitle(timerButStartStr, forState: UIControlState.Normal) //Sets timer button to be "Start Timer"
             
             NSLog("Timer has finished")
@@ -152,6 +169,24 @@ class TimerVC: UIViewController {
         
         timerLabel.text = timercdString
         
+    }
+    
+    func setSpeechLabel()
+    {
+        if (whichDebateChosen == 0)
+        {
+            speechLblStr = policySpeeches[speechCounter]
+        }
+        else if (whichDebateChosen == 1)
+        {
+            speechLblStr = ldSpeeches[speechCounter]
+        }
+        else if (whichDebateChosen == 2)
+        {
+            speechLblStr = pfdSpeeches[speechCounter]
+        }
+        
+        speechLabel.text = speechLblStr
     }
     
     override func didReceiveMemoryWarning() {

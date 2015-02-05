@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C81f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -159,9 +160,22 @@
                                     <action selector="backButTap:" destination="fYO-Hp-V9U" eventType="touchUpInside" id="bYd-rI-jKm"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speech" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ewu-xp-mp5">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="88" y="435" width="224" height="62"/>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerY" secondItem="ewu-xp-mp5" secondAttribute="centerY" id="4cm-sm-xJv">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-66"/>
+                            </constraint>
+                            <constraint firstAttribute="centerX" secondItem="ewu-xp-mp5" secondAttribute="centerX" id="53W-ee-K0b"/>
                             <constraint firstAttribute="bottom" secondItem="jQR-FK-Tyx" secondAttribute="bottom" constant="20" symbolic="YES" id="BoN-Rc-OI1"/>
                             <constraint firstAttribute="centerX" secondItem="jQR-FK-Tyx" secondAttribute="centerX" constant="32" id="EoK-zB-GDX">
                                 <variation key="heightClass=regular-widthClass=compact" constant="140"/>
@@ -181,12 +195,15 @@
                                 <exclude reference="TAX-xh-aI4"/>
                                 <exclude reference="Akr-Is-gq5"/>
                                 <exclude reference="jQR-FK-Tyx"/>
+                                <exclude reference="ewu-xp-mp5"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="MyE-dm-8Qe"/>
                                 <exclude reference="Yno-sA-olS"/>
                                 <exclude reference="MUF-H9-zqs"/>
                                 <exclude reference="pp2-Hs-VPR"/>
+                                <exclude reference="4cm-sm-xJv"/>
+                                <exclude reference="53W-ee-K0b"/>
                                 <exclude reference="BoN-Rc-OI1"/>
                                 <exclude reference="EoK-zB-GDX"/>
                                 <exclude reference="Rg9-mG-R38"/>
@@ -201,12 +218,15 @@
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="jQR-FK-Tyx"/>
+                                <include reference="ewu-xp-mp5"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="MyE-dm-8Qe"/>
                                 <include reference="Yno-sA-olS"/>
                                 <include reference="MUF-H9-zqs"/>
                                 <include reference="pp2-Hs-VPR"/>
+                                <include reference="4cm-sm-xJv"/>
+                                <include reference="53W-ee-K0b"/>
                                 <include reference="BoN-Rc-OI1"/>
                                 <exclude reference="EoK-zB-GDX"/>
                                 <include reference="Rg9-mG-R38"/>
@@ -215,6 +235,7 @@
                     </view>
                     <connections>
                         <outlet property="backButton" destination="jQR-FK-Tyx" id="qKU-Lx-eoN"/>
+                        <outlet property="speechLabel" destination="ewu-xp-mp5" id="8Ik-2k-Xpd"/>
                         <outlet property="timerButton" destination="TAX-xh-aI4" id="DiG-yV-EGi"/>
                         <outlet property="timerLabel" destination="Akr-Is-gq5" id="eIu-Nb-ajw"/>
                         <segue destination="vXZ-lx-hvc" kind="presentation" identifier="segueToHome" modalTransitionStyle="crossDissolve" id="aye-V6-Q8N"/>
