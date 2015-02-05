@@ -33,6 +33,9 @@ class TimerVC: UIViewController {
     var timerButPauseStr = "Pause Timer"
     var timerButResumeStr = "Resume Timer"
     
+    //Picker View
+    var pickerData: [String] = Array()
+    
     //Other Variables
     var segueHomeStr = "segueToHome"
     var speechLblStr = String()
@@ -49,8 +52,11 @@ class TimerVC: UIViewController {
         
         //Set timer data
         setTimerData()
-        
+
         NSLog("Debate chosen: \(whichDebateChosen)")
+        
+        //Sets picker data
+        setPickerData()
         
         setTimerLabel()
         setSpeechLabel()
@@ -187,6 +193,53 @@ class TimerVC: UIViewController {
         }
         
         speechLabel.text = speechLblStr
+    }
+    
+    //Picker for choosing speech
+    
+    //Sets data for picker
+    func setPickerData()
+    {
+        if (whichDebateChosen == 0)
+        {
+            pickerData = policySpeeches
+        }
+        else if (whichDebateChosen == 1)
+        {
+            pickerData = ldSpeeches
+        }
+        else if (whichDebateChosen == 2)
+        {
+            pickerData = pfdSpeeches
+        }
+    }
+    
+    //Number of columns in picker
+    func numberOfComponentsInPickerView(picker: UIPickerView) -> Int
+    {
+        return 1
+    }
+    
+    //Set number of rows in picker
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
+    {
+        return pickerData.count
+    }
+    
+    //Sets data to picker
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String!
+    {
+        NSLog("Picker: \(pickerData[row])")
+        
+        speechCounter = row
+        if (timerStarted){
+            stopTimer()
+        }
+        setTimerData()
+        setTimerLabel()
+        setSpeechLabel()
+        
+        return pickerData[row]
     }
     
     override func didReceiveMemoryWarning() {

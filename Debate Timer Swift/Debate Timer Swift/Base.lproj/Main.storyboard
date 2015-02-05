@@ -169,6 +169,13 @@
                                     <rect key="frame" x="88" y="435" width="224" height="62"/>
                                 </variation>
                             </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jq8-vV-ve3">
+                                <rect key="frame" x="0.0" y="-162" width="320" height="162"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="fYO-Hp-V9U" id="CY9-RC-6qt"/>
+                                    <outlet property="delegate" destination="fYO-Hp-V9U" id="P09-Wq-ybI"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -176,6 +183,7 @@
                                 <variation key="heightClass=regular-widthClass=compact" constant="-66"/>
                             </constraint>
                             <constraint firstAttribute="centerX" secondItem="ewu-xp-mp5" secondAttribute="centerX" id="53W-ee-K0b"/>
+                            <constraint firstItem="Jq8-vV-ve3" firstAttribute="top" secondItem="ewu-xp-mp5" secondAttribute="bottom" constant="8" id="9rG-DL-axD"/>
                             <constraint firstAttribute="bottom" secondItem="jQR-FK-Tyx" secondAttribute="bottom" constant="20" symbolic="YES" id="BoN-Rc-OI1"/>
                             <constraint firstAttribute="centerX" secondItem="jQR-FK-Tyx" secondAttribute="centerX" constant="32" id="EoK-zB-GDX">
                                 <variation key="heightClass=regular-widthClass=compact" constant="140"/>
@@ -188,6 +196,10 @@
                             <constraint firstAttribute="centerY" secondItem="Akr-Is-gq5" secondAttribute="centerY" id="Yno-sA-olS">
                                 <variation key="heightClass=regular-widthClass=compact" constant="80"/>
                             </constraint>
+                            <constraint firstAttribute="centerY" secondItem="Jq8-vV-ve3" secondAttribute="centerY" id="crF-Kh-Gqz">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-186"/>
+                            </constraint>
+                            <constraint firstAttribute="centerX" secondItem="Jq8-vV-ve3" secondAttribute="centerX" id="l53-TE-Y1c"/>
                             <constraint firstAttribute="centerY" secondItem="TAX-xh-aI4" secondAttribute="centerY" id="pp2-Hs-VPR"/>
                         </constraints>
                         <variation key="default">
@@ -196,6 +208,7 @@
                                 <exclude reference="Akr-Is-gq5"/>
                                 <exclude reference="jQR-FK-Tyx"/>
                                 <exclude reference="ewu-xp-mp5"/>
+                                <exclude reference="Jq8-vV-ve3"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="MyE-dm-8Qe"/>
@@ -204,6 +217,9 @@
                                 <exclude reference="pp2-Hs-VPR"/>
                                 <exclude reference="4cm-sm-xJv"/>
                                 <exclude reference="53W-ee-K0b"/>
+                                <exclude reference="9rG-DL-axD"/>
+                                <exclude reference="crF-Kh-Gqz"/>
+                                <exclude reference="l53-TE-Y1c"/>
                                 <exclude reference="BoN-Rc-OI1"/>
                                 <exclude reference="EoK-zB-GDX"/>
                                 <exclude reference="Rg9-mG-R38"/>
@@ -219,6 +235,7 @@
                             <mask key="subviews">
                                 <include reference="jQR-FK-Tyx"/>
                                 <include reference="ewu-xp-mp5"/>
+                                <include reference="Jq8-vV-ve3"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="MyE-dm-8Qe"/>
@@ -227,6 +244,9 @@
                                 <include reference="pp2-Hs-VPR"/>
                                 <include reference="4cm-sm-xJv"/>
                                 <include reference="53W-ee-K0b"/>
+                                <include reference="9rG-DL-axD"/>
+                                <exclude reference="crF-Kh-Gqz"/>
+                                <include reference="l53-TE-Y1c"/>
                                 <include reference="BoN-Rc-OI1"/>
                                 <exclude reference="EoK-zB-GDX"/>
                                 <include reference="Rg9-mG-R38"/>
