@@ -35,6 +35,8 @@ class TimerVC: UIViewController {
     
     //Picker View
     var pickerData: [String] = Array()
+    var isPickerShowing = Bool()
+    //var speechPicker = UIPickerView()
     
     //Other Variables
     var segueHomeStr = "segueToHome"
@@ -44,6 +46,8 @@ class TimerVC: UIViewController {
     @IBOutlet weak var timerButton: UIButton!
     @IBOutlet weak var speechLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var showPickerButton: UIButton!
+    @IBOutlet weak var speechPicker: UIPickerView!
     
     override func viewDidLoad()
     {
@@ -61,11 +65,15 @@ class TimerVC: UIViewController {
         setTimerLabel()
         setSpeechLabel()
         
+        NSLog("Old Picker Pos: \(speechPicker.center)")
+        speechPicker.center = CGPointMake(speechPicker.center.x, speechPicker.center.y + self.view.frame.size.height)
+        NSLog("New Picker Pos: \(speechPicker.center)")
     }
     
     
     @IBAction func timerButTap(sender: AnyObject)
     {
+
         if (!timerStarted)
         {
             if (counterCentiseconds > 0)
@@ -196,6 +204,57 @@ class TimerVC: UIViewController {
     }
     
     //Picker for choosing speech
+    
+    
+    @IBAction func showPickerButTap(sender: AnyObject)
+    {
+        
+        NSLog("New Picker Pos: \(speechPicker.center)")
+        
+        if (!isPickerShowing)
+        {
+            //showPicker()
+            speechPicker.center = CGPointMake(speechPicker.center.x, speechPicker.center.y - self.view.frame.size.height)
+            isPickerShowing = true
+        }
+        else if (isPickerShowing)
+        {
+            //hidePicker()
+            speechPicker.center = CGPointMake(speechPicker.center.x, speechPicker.center.y + self.view.frame.size.height)
+            isPickerShowing = false
+        }
+    }
+    
+    func showPicker()
+    {
+        //Sets picker to selected row
+        speechPicker.selectRow(speechCounter, inComponent: 0, animated: true)
+        showPickerButton.setTitle("Hide Speeches", forState: UIControlState.Normal)
+        
+        //Animates the picker
+        var mainPickerCenter = CGPointMake(speechPicker.center.x, speechPicker.center.y - self.view.frame.size.height)
+        UIView.beginAnimations(nil, context: nil)
+        UIView.setAnimationDuration(0.5)
+        UIView.setAnimationCurve(UIViewAnimationCurve.EaseOut)
+        speechPicker.center = mainPickerCenter
+        
+        UIView.commitAnimations()
+        isPickerShowing = true
+    }
+    
+    func hidePicker()
+    {
+        showPickerButton.setTitle("Show Speeches", forState: UIControlState.Normal)
+        
+        var newPickerCenter = CGPointMake(speechPicker.center.x, speechPicker.center.y + self.view.frame.size.height)
+        UIView.beginAnimations(nil, context: nil)
+        UIView.setAnimationDuration(0.5)
+        UIView.setAnimationCurve(UIViewAnimationCurve.EaseOut)
+        speechPicker.center = newPickerCenter
+        
+        UIView.commitAnimations()
+        isPickerShowing = false
+    }
     
     //Sets data for picker
     func setPickerData()

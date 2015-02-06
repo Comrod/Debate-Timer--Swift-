@@ -183,9 +183,16 @@
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
                                     <rect key="frame" x="102" y="429" width="197" height="30"/>
                                 </variation>
+                                <connections>
+                                    <action selector="showPickerButTap:" destination="fYO-Hp-V9U" eventType="touchUpInside" id="etT-hT-NA0"/>
+                                </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jq8-vV-ve3">
                                 <rect key="frame" x="0.0" y="-162" width="320" height="162"/>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="480" width="400" height="162"/>
+                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="fYO-Hp-V9U" id="CY9-RC-6qt"/>
                                     <outlet property="delegate" destination="fYO-Hp-V9U" id="P09-Wq-ybI"/>
@@ -195,10 +202,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="jQR-FK-Tyx" secondAttribute="bottom" constant="20" symbolic="YES" id="6hn-TZ-kx9"/>
+                            <constraint firstAttribute="centerY" secondItem="Jq8-vV-ve3" secondAttribute="centerY" id="7gL-gm-f2C">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-161"/>
+                            </constraint>
                             <constraint firstAttribute="centerX" secondItem="ewu-xp-mp5" secondAttribute="centerX" constant="63" id="NI8-FK-jXR">
                                 <variation key="heightClass=regular-widthClass=compact" constant="-0.5"/>
                             </constraint>
-                            <constraint firstAttribute="centerX" secondItem="Jq8-vV-ve3" secondAttribute="centerX" id="PRK-B6-T1g"/>
                             <constraint firstAttribute="centerX" secondItem="Yoo-3S-39g" secondAttribute="centerX" id="Q2Y-3q-E0e"/>
                             <constraint firstAttribute="centerX" secondItem="Akr-Is-gq5" secondAttribute="centerX" id="RqF-hw-iOS"/>
                             <constraint firstAttribute="centerY" secondItem="ewu-xp-mp5" secondAttribute="centerY" id="TpV-ur-WmR">
@@ -207,19 +216,14 @@
                             <constraint firstAttribute="centerY" secondItem="Yoo-3S-39g" secondAttribute="centerY" id="bfI-TU-umd">
                                 <variation key="heightClass=regular-widthClass=compact" constant="-44"/>
                             </constraint>
-                            <constraint firstAttribute="centerY" secondItem="Jq8-vV-ve3" secondAttribute="centerY" id="h6e-9X-dXU">
-                                <variation key="heightClass=regular-widthClass=compact" constant="-148"/>
-                            </constraint>
                             <constraint firstAttribute="centerY" secondItem="TAX-xh-aI4" secondAttribute="centerY" id="ixF-0F-y2q">
                                 <variation key="heightClass=regular-widthClass=compact" constant="50"/>
                             </constraint>
                             <constraint firstAttribute="centerY" secondItem="Akr-Is-gq5" secondAttribute="centerY" id="qhx-hR-E27">
                                 <variation key="heightClass=regular-widthClass=compact" constant="127"/>
                             </constraint>
-                            <constraint firstAttribute="centerY" secondItem="jQR-FK-Tyx" secondAttribute="centerY" id="qyz-kY-BWh">
-                                <variation key="heightClass=regular-widthClass=compact" constant="-359"/>
-                            </constraint>
                             <constraint firstAttribute="centerX" secondItem="TAX-xh-aI4" secondAttribute="centerX" id="trX-eA-AGA"/>
+                            <constraint firstAttribute="centerX" secondItem="Jq8-vV-ve3" secondAttribute="centerX" id="y0g-Wb-iSa"/>
                             <constraint firstItem="jQR-FK-Tyx" firstAttribute="leading" secondItem="JRT-FT-3Pa" secondAttribute="leadingMargin" constant="16" id="zDm-52-IFz"/>
                         </constraints>
                         <variation key="default">
@@ -240,10 +244,9 @@
                                 <exclude reference="TpV-ur-WmR"/>
                                 <exclude reference="Q2Y-3q-E0e"/>
                                 <exclude reference="bfI-TU-umd"/>
-                                <exclude reference="PRK-B6-T1g"/>
-                                <exclude reference="h6e-9X-dXU"/>
+                                <exclude reference="7gL-gm-f2C"/>
+                                <exclude reference="y0g-Wb-iSa"/>
                                 <exclude reference="6hn-TZ-kx9"/>
-                                <exclude reference="qyz-kY-BWh"/>
                                 <exclude reference="zDm-52-IFz"/>
                             </mask>
                         </variation>
@@ -269,17 +272,18 @@
                                 <include reference="TpV-ur-WmR"/>
                                 <include reference="Q2Y-3q-E0e"/>
                                 <include reference="bfI-TU-umd"/>
-                                <include reference="PRK-B6-T1g"/>
-                                <include reference="h6e-9X-dXU"/>
+                                <include reference="7gL-gm-f2C"/>
+                                <include reference="y0g-Wb-iSa"/>
                                 <include reference="6hn-TZ-kx9"/>
-                                <exclude reference="qyz-kY-BWh"/>
                                 <include reference="zDm-52-IFz"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="jQR-FK-Tyx" id="qKU-Lx-eoN"/>
+                        <outlet property="showPickerButton" destination="Yoo-3S-39g" id="ADD-xT-QZb"/>
                         <outlet property="speechLabel" destination="ewu-xp-mp5" id="8Ik-2k-Xpd"/>
+                        <outlet property="speechPicker" destination="Jq8-vV-ve3" id="FYm-f5-Tzr"/>
                         <outlet property="timerButton" destination="TAX-xh-aI4" id="DiG-yV-EGi"/>
                         <outlet property="timerLabel" destination="Akr-Is-gq5" id="eIu-Nb-ajw"/>
                         <segue destination="vXZ-lx-hvc" kind="presentation" identifier="segueToHome" modalTransitionStyle="crossDissolve" id="aye-V6-Q8N"/>
