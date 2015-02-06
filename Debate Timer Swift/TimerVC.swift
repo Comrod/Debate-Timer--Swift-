@@ -65,9 +65,9 @@ class TimerVC: UIViewController {
         setTimerLabel()
         setSpeechLabel()
         
-        NSLog("Old Picker Pos: \(speechPicker.center)")
+        //Sets picker to appear offscreen
         speechPicker.center = CGPointMake(speechPicker.center.x, speechPicker.center.y + self.view.frame.size.height)
-        NSLog("New Picker Pos: \(speechPicker.center)")
+        isPickerShowing = false
     }
     
     
@@ -204,27 +204,24 @@ class TimerVC: UIViewController {
     }
     
     //Picker for choosing speech
-    
-    
     @IBAction func showPickerButTap(sender: AnyObject)
     {
         
-        NSLog("New Picker Pos: \(speechPicker.center)")
-        
         if (!isPickerShowing)
         {
-            //showPicker()
-            speechPicker.center = CGPointMake(speechPicker.center.x, speechPicker.center.y - self.view.frame.size.height)
-            isPickerShowing = true
+            showPicker()
+            NSLog("Shows picker")
         }
         else if (isPickerShowing)
         {
-            //hidePicker()
-            speechPicker.center = CGPointMake(speechPicker.center.x, speechPicker.center.y + self.view.frame.size.height)
-            isPickerShowing = false
+            hidePicker()
+            NSLog("Shows picker")
         }
+        
+        NSLog("New Picker Pos: \(speechPicker.center)")
     }
     
+    //Shows picker from off-screen
     func showPicker()
     {
         //Sets picker to selected row
@@ -242,6 +239,7 @@ class TimerVC: UIViewController {
         isPickerShowing = true
     }
     
+    //Hides picker off-screen
     func hidePicker()
     {
         showPickerButton.setTitle("Show Speeches", forState: UIControlState.Normal)

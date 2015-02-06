@@ -1,162 +1,81 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C81f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C81f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Debate_Timer_Swift" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
-                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXP-Cb-9e2">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" id="eXP-Cb-9e2">
+                                <rect key="frame" x="32" y="263" width="257" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Lincoln-Douglas Round">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="37" y="158" width="161" height="30"/>
-                                </variation>
                                 <connections>
                                     <action selector="ldButTap:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="h1X-GG-tE1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CUv-QX-tpq">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" id="CUv-QX-tpq">
+                                <rect key="frame" x="87" y="182" width="146" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Policy Round">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="72" y="104" width="91" height="30"/>
-                                </variation>
                                 <connections>
                                     <action selector="policyButTap:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="kvi-ni-YeW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d8t-KE-ity">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" id="d8t-KE-ity">
+                                <rect key="frame" x="48" y="336" width="225" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Public Forum Round">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="37" y="201" width="141" height="30"/>
-                                </variation>
                                 <connections>
                                     <action selector="pfdButTap:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="VRc-Pp-gSl"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="centerY" secondItem="d8t-KE-ity" secondAttribute="centerY" id="a40-lJ-1Qe">
-                                <variation key="heightClass=regular-widthClass=compact" constant="-72.5"/>
-                            </constraint>
-                            <constraint firstAttribute="centerX" secondItem="CUv-QX-tpq" secondAttribute="centerX" constant="50" id="fBP-di-N9F">
-                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
-                            </constraint>
-                            <constraint firstAttribute="centerY" secondItem="eXP-Cb-9e2" secondAttribute="centerY" id="q35-XF-y8n"/>
-                            <constraint firstAttribute="centerX" secondItem="eXP-Cb-9e2" secondAttribute="centerX" id="s7e-Di-gA8"/>
-                            <constraint firstAttribute="centerY" secondItem="CUv-QX-tpq" secondAttribute="centerY" constant="81.5" id="x9y-yu-z1W"/>
-                            <constraint firstAttribute="centerX" secondItem="d8t-KE-ity" secondAttribute="centerX" constant="50" id="xLG-PN-k0w">
-                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
-                            </constraint>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="eXP-Cb-9e2"/>
-                                <exclude reference="CUv-QX-tpq"/>
-                                <exclude reference="d8t-KE-ity"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="fBP-di-N9F"/>
-                                <exclude reference="x9y-yu-z1W"/>
-                                <exclude reference="a40-lJ-1Qe"/>
-                                <exclude reference="xLG-PN-k0w"/>
-                                <exclude reference="q35-XF-y8n"/>
-                                <exclude reference="s7e-Di-gA8"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular">
-                            <mask key="subviews">
-                                <include reference="eXP-Cb-9e2"/>
-                                <include reference="CUv-QX-tpq"/>
-                                <include reference="d8t-KE-ity"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular-widthClass=compact">
-                            <mask key="constraints">
-                                <include reference="fBP-di-N9F"/>
-                                <include reference="x9y-yu-z1W"/>
-                                <include reference="a40-lJ-1Qe"/>
-                                <include reference="xLG-PN-k0w"/>
-                                <include reference="q35-XF-y8n"/>
-                                <include reference="s7e-Di-gA8"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="ldButton" destination="eXP-Cb-9e2" id="PmZ-a2-Z76"/>
                         <outlet property="pfdButton" destination="d8t-KE-ity" id="CR8-Gy-yaa"/>
                         <outlet property="policyButton" destination="CUv-QX-tpq" id="b9N-io-gKO"/>
-                        <segue destination="fYO-Hp-V9U" kind="presentation" identifier="segueToTimer" modalTransitionStyle="crossDissolve" id="IrH-SV-D6X"/>
+                        <segue destination="fYO-Hp-V9U" kind="modal" identifier="segueToTimer" modalTransitionStyle="crossDissolve" id="IrH-SV-D6X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="442.5" y="210.75"/>
+            <point key="canvasLocation" x="236" y="199.50999999999999"/>
         </scene>
         <!--TimerVC-->
         <scene sceneID="UNg-DY-eVa">
             <objects>
                 <viewController storyboardIdentifier="timerVC" id="fYO-Hp-V9U" customClass="TimerVC" customModule="Debate_Timer_Swift" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="CGG-Mp-MDm"/>
-                        <viewControllerLayoutGuide type="bottom" id="swv-Sx-dfY"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JRT-FT-3Pa">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TAX-xh-aI4">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                <state key="normal" title="Start Timer">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="heightClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="262" y="385" width="180" height="64"/>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="109" y="323" width="183" height="54"/>
-                                </variation>
-                                <connections>
-                                    <action selector="timerButTap:" destination="fYO-Hp-V9U" eventType="touchUpInside" id="FBz-Pf-0VB"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Akr-Is-gq5">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Akr-Is-gq5">
+                                <rect key="frame" x="0.0" y="110" width="320" height="84"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="98" y="286" width="405" height="78"/>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="30" y="231" width="340" height="84"/>
-                                </variation>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jQR-FK-Tyx">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jQR-FK-Tyx">
+                                <rect key="frame" x="32" y="506" width="56" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Back">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -165,119 +84,46 @@
                                     <action selector="backButTap:" destination="fYO-Hp-V9U" eventType="touchUpInside" id="bYd-rI-jKm"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speech" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ewu-xp-mp5">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="43" y="385" width="314" height="36"/>
-                                </variation>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yoo-3S-39g">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Yoo-3S-39g">
+                                <rect key="frame" x="55" y="308" width="210" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Show Speeches">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="102" y="429" width="197" height="30"/>
-                                </variation>
                                 <connections>
                                     <action selector="showPickerButTap:" destination="fYO-Hp-V9U" eventType="touchUpInside" id="etT-hT-NA0"/>
                                 </connections>
                             </button>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jq8-vV-ve3">
-                                <rect key="frame" x="0.0" y="-162" width="320" height="162"/>
+                            <pickerView contentMode="scaleToFill" id="Jq8-vV-ve3">
+                                <rect key="frame" x="0.0" y="349" width="320" height="162"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="480" width="400" height="162"/>
-                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="fYO-Hp-V9U" id="CY9-RC-6qt"/>
                                     <outlet property="delegate" destination="fYO-Hp-V9U" id="P09-Wq-ybI"/>
                                 </connections>
                             </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speech" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ewu-xp-mp5">
+                                <rect key="frame" x="84" y="264" width="153" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="TAX-xh-aI4">
+                                <rect key="frame" x="58" y="202" width="205" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <state key="normal" title="Start Timer">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="timerButTap:" destination="fYO-Hp-V9U" eventType="touchUpInside" id="FBz-Pf-0VB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="jQR-FK-Tyx" secondAttribute="bottom" constant="20" symbolic="YES" id="6hn-TZ-kx9"/>
-                            <constraint firstAttribute="centerY" secondItem="Jq8-vV-ve3" secondAttribute="centerY" id="7gL-gm-f2C">
-                                <variation key="heightClass=regular-widthClass=compact" constant="-161"/>
-                            </constraint>
-                            <constraint firstAttribute="centerX" secondItem="ewu-xp-mp5" secondAttribute="centerX" constant="63" id="NI8-FK-jXR">
-                                <variation key="heightClass=regular-widthClass=compact" constant="-0.5"/>
-                            </constraint>
-                            <constraint firstAttribute="centerX" secondItem="Yoo-3S-39g" secondAttribute="centerX" id="Q2Y-3q-E0e"/>
-                            <constraint firstAttribute="centerX" secondItem="Akr-Is-gq5" secondAttribute="centerX" id="RqF-hw-iOS"/>
-                            <constraint firstAttribute="centerY" secondItem="ewu-xp-mp5" secondAttribute="centerY" id="TpV-ur-WmR">
-                                <variation key="heightClass=regular-widthClass=compact" constant="-3"/>
-                            </constraint>
-                            <constraint firstAttribute="centerY" secondItem="Yoo-3S-39g" secondAttribute="centerY" id="bfI-TU-umd">
-                                <variation key="heightClass=regular-widthClass=compact" constant="-44"/>
-                            </constraint>
-                            <constraint firstAttribute="centerY" secondItem="TAX-xh-aI4" secondAttribute="centerY" id="ixF-0F-y2q">
-                                <variation key="heightClass=regular-widthClass=compact" constant="50"/>
-                            </constraint>
-                            <constraint firstAttribute="centerY" secondItem="Akr-Is-gq5" secondAttribute="centerY" id="qhx-hR-E27">
-                                <variation key="heightClass=regular-widthClass=compact" constant="127"/>
-                            </constraint>
-                            <constraint firstAttribute="centerX" secondItem="TAX-xh-aI4" secondAttribute="centerX" id="trX-eA-AGA"/>
-                            <constraint firstAttribute="centerX" secondItem="Jq8-vV-ve3" secondAttribute="centerX" id="y0g-Wb-iSa"/>
-                            <constraint firstItem="jQR-FK-Tyx" firstAttribute="leading" secondItem="JRT-FT-3Pa" secondAttribute="leadingMargin" constant="16" id="zDm-52-IFz"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="TAX-xh-aI4"/>
-                                <exclude reference="Akr-Is-gq5"/>
-                                <exclude reference="jQR-FK-Tyx"/>
-                                <exclude reference="ewu-xp-mp5"/>
-                                <exclude reference="Yoo-3S-39g"/>
-                                <exclude reference="Jq8-vV-ve3"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="RqF-hw-iOS"/>
-                                <exclude reference="qhx-hR-E27"/>
-                                <exclude reference="ixF-0F-y2q"/>
-                                <exclude reference="trX-eA-AGA"/>
-                                <exclude reference="NI8-FK-jXR"/>
-                                <exclude reference="TpV-ur-WmR"/>
-                                <exclude reference="Q2Y-3q-E0e"/>
-                                <exclude reference="bfI-TU-umd"/>
-                                <exclude reference="7gL-gm-f2C"/>
-                                <exclude reference="y0g-Wb-iSa"/>
-                                <exclude reference="6hn-TZ-kx9"/>
-                                <exclude reference="zDm-52-IFz"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular">
-                            <mask key="subviews">
-                                <include reference="TAX-xh-aI4"/>
-                                <include reference="Akr-Is-gq5"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular-widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="jQR-FK-Tyx"/>
-                                <include reference="ewu-xp-mp5"/>
-                                <include reference="Yoo-3S-39g"/>
-                                <include reference="Jq8-vV-ve3"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="RqF-hw-iOS"/>
-                                <include reference="qhx-hR-E27"/>
-                                <include reference="ixF-0F-y2q"/>
-                                <include reference="trX-eA-AGA"/>
-                                <include reference="NI8-FK-jXR"/>
-                                <include reference="TpV-ur-WmR"/>
-                                <include reference="Q2Y-3q-E0e"/>
-                                <include reference="bfI-TU-umd"/>
-                                <include reference="7gL-gm-f2C"/>
-                                <include reference="y0g-Wb-iSa"/>
-                                <include reference="6hn-TZ-kx9"/>
-                                <include reference="zDm-52-IFz"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="jQR-FK-Tyx" id="qKU-Lx-eoN"/>
@@ -286,12 +132,17 @@
                         <outlet property="speechPicker" destination="Jq8-vV-ve3" id="FYm-f5-Tzr"/>
                         <outlet property="timerButton" destination="TAX-xh-aI4" id="DiG-yV-EGi"/>
                         <outlet property="timerLabel" destination="Akr-Is-gq5" id="eIu-Nb-ajw"/>
-                        <segue destination="vXZ-lx-hvc" kind="presentation" identifier="segueToHome" modalTransitionStyle="crossDissolve" id="aye-V6-Q8N"/>
+                        <segue destination="vXZ-lx-hvc" kind="modal" identifier="segueToHome" modalTransitionStyle="crossDissolve" id="aye-V6-Q8N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GMZ-zs-wfz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1180.5" y="210.75"/>
+            <point key="canvasLocation" x="629" y="199"/>
         </scene>
     </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>
