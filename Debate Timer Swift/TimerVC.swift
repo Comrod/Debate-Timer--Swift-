@@ -40,14 +40,18 @@ class TimerVC: UIViewController {
     
     //Other Variables
     var segueHomeStr = "segueToHome"
+    var seguePrepStr = "segueToPrep"
     var speechLblStr = String()
+    var styleLblStr = String()
     
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var timerButton: UIButton!
     @IBOutlet weak var speechLabel: UILabel!
+    @IBOutlet weak var styleLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var showPickerButton: UIButton!
     @IBOutlet weak var speechPicker: UIPickerView!
+    @IBOutlet weak var prepButton: UIButton!
     
     override func viewDidLoad()
     {
@@ -58,6 +62,7 @@ class TimerVC: UIViewController {
         setTimerData()
 
         NSLog("Debate chosen: \(whichDebateChosen)")
+        
         
         //Sets picker data
         setPickerData()
@@ -190,18 +195,30 @@ class TimerVC: UIViewController {
         if (whichDebateChosen == 0)
         {
             speechLblStr = policySpeeches[speechCounter]
+            styleLblStr = "Policy Debate"
+            
         }
         else if (whichDebateChosen == 1)
         {
             speechLblStr = ldSpeeches[speechCounter]
+            styleLblStr = "Lincoln-Douglas Debate"
         }
         else if (whichDebateChosen == 2)
         {
             speechLblStr = pfdSpeeches[speechCounter]
+            styleLblStr = "Public Forum Debate"
         }
         
         speechLabel.text = speechLblStr
+        styleLabel.text = styleLblStr
     }
+    
+    //Prep Time Button
+    @IBAction func prepButTap(sender: AnyObject)
+    {
+        performSegueWithIdentifier(seguePrepStr, sender: self)
+    }
+    
     
     //Picker for choosing speech
     @IBAction func showPickerButTap(sender: AnyObject)
@@ -319,7 +336,10 @@ class TimerVC: UIViewController {
             //Pass variables between View Controllers
             let vC = segue.destinationViewController as ViewController
             
-            
+        }
+        else if (segue.identifier == "segueToPrep") //If going to prep vc
+        {
+            let prepVC = segue.destinationViewController as PrepVC
         }
     }
     
