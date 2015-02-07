@@ -43,6 +43,7 @@ class TimerVC: UIViewController {
     var seguePrepStr = "segueToPrep"
     var speechLblStr = String()
     var styleLblStr = String()
+    var goneToPrep = Bool()
     
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var timerButton: UIButton!
@@ -58,11 +59,10 @@ class TimerVC: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        NSLog("Debate chosen: \(whichDebateChosen), Speech counter: \(speechCounter), Centiseconds: \(counterCentiseconds), Gone to Prep: \(goneToPrep)")
+        
         //Set timer data
         setTimerData()
-
-        NSLog("Debate chosen: \(whichDebateChosen)")
-        
         
         //Sets picker data
         setPickerData()
@@ -73,6 +73,7 @@ class TimerVC: UIViewController {
         //Sets picker to appear offscreen
         speechPicker.center = CGPointMake(speechPicker.center.x, speechPicker.center.y + self.view.frame.size.height)
         isPickerShowing = false
+        
     }
     
     
@@ -303,7 +304,6 @@ class TimerVC: UIViewController {
     //Sets data to picker
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String!
     {
-        NSLog("Picker: \(pickerData[row])")
         
         return pickerData[row]
     }
@@ -339,7 +339,13 @@ class TimerVC: UIViewController {
         }
         else if (segue.identifier == "segueToPrep") //If going to prep vc
         {
-            let prepVC = segue.destinationViewController as PrepVC
+            let pVC = segue.destinationViewController as PrepVC
+            pVC.styleDebateChosen = whichDebateChosen
+            pVC.speechCounterStored = speechCounter
+            pVC.centisecondsStored = counterCentiseconds
+            goneToPrep = true
+            pVC.goneToPrepStored = goneToPrep
+            
         }
     }
     

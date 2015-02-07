@@ -12,6 +12,11 @@ class PrepVC: UIViewController {
     
     var segueTimerStr = "seguePrepToTimer"
     
+    //Ints to be stored
+    var styleDebateChosen = Int()
+    var speechCounterStored = Int()
+    var centisecondsStored = Int()
+    var goneToPrepStored = Bool()
     
     @IBOutlet weak var backButton: UIButton!
     
@@ -22,6 +27,7 @@ class PrepVC: UIViewController {
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        NSLog("Debate Chosen: \(styleDebateChosen), Speech Counter: \(speechCounterStored), Centiseconds: \(centisecondsStored)")
         
     }
     
@@ -34,7 +40,7 @@ class PrepVC: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
- 
+  
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         //If going back to the debate selection screen
@@ -42,8 +48,10 @@ class PrepVC: UIViewController {
         {
             //Pass variables between View Controllers
             let tVC = segue.destinationViewController as TimerVC
-            
-            
+            tVC.whichDebateChosen = styleDebateChosen
+            tVC.speechCounter = speechCounterStored
+            tVC.counterCentiseconds = centisecondsStored
+            tVC.goneToPrep = goneToPrepStored
         }
     }
 }
