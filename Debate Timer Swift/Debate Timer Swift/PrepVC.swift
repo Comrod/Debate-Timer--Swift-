@@ -10,6 +10,8 @@ import UIKit
 
 class PrepVC: UIViewController {
     
+    var segueTimerStr = "seguePrepToTimer"
+    
     
     @IBOutlet weak var backButton: UIButton!
     
@@ -25,7 +27,7 @@ class PrepVC: UIViewController {
     
     @IBAction func backButTap(sender: AnyObject)
     {
-        
+        performSegueWithIdentifier(segueTimerStr, sender: self)
     }
     
     override func didReceiveMemoryWarning() {
