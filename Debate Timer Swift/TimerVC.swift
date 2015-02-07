@@ -61,6 +61,10 @@ class TimerVC: UIViewController {
         
         NSLog("Debate chosen: \(whichDebateChosen), Speech counter: \(speechCounter), Centiseconds: \(counterCentiseconds), Gone to Prep: \(goneToPrep)")
         
+        //Example of singleton
+        //Singleton.sharedInstance.centiseconds = 2
+        
+        
         //Set timer data
         setTimerData()
         
