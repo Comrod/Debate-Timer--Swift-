@@ -71,6 +71,11 @@ class TimerVC: UIViewController {
             setTimerData()
             NSLog("Timer has not started so resetting data")
         }
+        else
+        {
+            //Sets the Timer Button to "Resume Timer"
+            timerButton.setTitle(timerButResumeStr, forState: UIControlState.Normal)
+        }
 
         
         //Sets picker data
@@ -335,6 +340,7 @@ class TimerVC: UIViewController {
         Global.speechCounter = row
         if (Global.timerStarted){
             stopTimer()
+            Global.timerStarted = false
         }
         setTimerData()
         setTimerLabel()
