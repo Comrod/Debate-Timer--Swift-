@@ -48,9 +48,9 @@ class PrepVC: UIViewController {
         {
             //Pass variables between View Controllers
             let tVC = segue.destinationViewController as TimerVC
-            tVC.whichDebateChosen = styleDebateChosen
-            tVC.speechCounter = speechCounterStored
-            tVC.counterCentiseconds = centisecondsStored
+            //tVC.whichDebateChosen = styleDebateChosen
+            //tVC.speechCounter = speechCounterStored
+            //tVC.counterCentiseconds = centisecondsStored
             tVC.goneToPrep = goneToPrepStored
         }
     }

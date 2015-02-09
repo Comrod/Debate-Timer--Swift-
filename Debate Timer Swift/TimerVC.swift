@@ -13,7 +13,6 @@ class TimerVC: UIViewController {
     //call setSpeechLabel
     
     //Debate Variables
-    var whichDebateChosen = Int()
     var policyTimes: [Int] = [8, 3, 8, 3, 8, 3, 8, 3, 5, 5, 5, 5, 0]
     var policySpeeches: [String] = ["1AC", "CX", "1NC", "CX", "2AC", "CX", "2NC", "CX", "1NR", "1AR", "2NR", "2AR", "Round Finished"]
     var ldTimes: [Int] = [6, 3, 7, 3, 4, 6, 3, 0]
@@ -23,10 +22,10 @@ class TimerVC: UIViewController {
     
     //Timer Variables
     var timer = NSTimer()
-    var counterCentiseconds = Int()
-    var speechCounter = 0
+    //var counterCentiseconds = Int()
+    //var speechCounter = 0
     var timercdString = String()
-    var timerStarted = false
+    //var timerStarted = false
     
     //Timer Button Variables
     var timerButStartStr = "Start Timer"
@@ -59,14 +58,20 @@ class TimerVC: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        NSLog("Debate chosen: \(whichDebateChosen), Speech counter: \(speechCounter), Centiseconds: \(counterCentiseconds), Gone to Prep: \(goneToPrep)")
+        NSLog("Debate chosen: \(Global.debateChosen), Speech counter: \(Global.speechCounter), Centiseconds: \(Global.counterCentiseconds), Gone to Prep: \(goneToPrep)")
         
         //Example of singleton
         //Singleton.sharedInstance.centiseconds = 2
         
         
-        //Set timer data
-        setTimerData()
+        //If the timer hasn't started
+        if (!Global.timerStarted)
+        {
+            //Set timer data
+            setTimerData()
+            NSLog("Timer has not started so resetting data")
+        }
+
         
         //Sets picker data
         setPickerData()
@@ -78,31 +83,40 @@ class TimerVC: UIViewController {
         speechPicker.center = CGPointMake(speechPicker.center.x, speechPicker.center.y + self.view.frame.size.height)
         isPickerShowing = false
         
+        NSLog("Timer Started: \(Global.timerStarted)")
+        
     }
     
     
     @IBAction func timerButTap(sender: AnyObject)
     {
 
-        if (!timerStarted)
+        if (!Global.timerStarted) //If the timer has not started
         {
-            if (counterCentiseconds > 0)
+            if (Global.counterCentiseconds > 0)
             {
                 runTimer()
-                timerStarted = true
+                Global.timerStarted = true
                 NSLog("Starting Timer")
             }
-            else
+            else //Round is over because countercentiseconds will only be 0 when the last speech has finished
             {
-                //Round is over because countercentiseconds will only be 0 when the last speech has finished
                 performSegueWithIdentifier(segueHomeStr, sender: self)
             }
         }
         else
         {
-            stopTimer()
-            timerButton.setTitle(timerButResumeStr, forState: UIControlState.Normal)
-            NSLog("Pausing Timer")
+            if (Global.timerPaused) //If the timer is paused (from going to another view)
+            {
+                runTimer()
+            }
+            else //If the timer is running (not paused)
+            {
+                stopTimer()
+                timerButton.setTitle(timerButResumeStr, forState: UIControlState.Normal)
+                Global.timerPaused = true
+                NSLog("Pausing Timer")
+            }
         }
     }
     
@@ -117,15 +131,17 @@ class TimerVC: UIViewController {
     {
         timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: ("updateCounter"), userInfo: nil, repeats: true)
         timerButton.setTitle(timerButPauseStr, forState: UIControlState.Normal)
+        
+        Global.timerPaused = false
     }
     
     //Actual timer method - reduces the counter until counter = 0
     func updateCounter()
     {
-        if (counterCentiseconds > 0)
+        if (Global.counterCentiseconds > 0)
         {
             //Reduce counter
-            counterCentiseconds--
+            Global.counterCentiseconds--
             
             //Update label
             setTimerLabel()
@@ -137,9 +153,9 @@ class TimerVC: UIViewController {
             
             stopTimer()
             
-            speechCounter++
+            Global.speechCounter++
             
-            timerStarted = false
+            Global.timerStarted = false
             
             setTimerData() //Sets timer for next speech
             setTimerLabel() //Sets timer label minute place for the next speech
@@ -153,34 +169,34 @@ class TimerVC: UIViewController {
     func stopTimer()
     {
         timer.invalidate()
-        timerStarted = false
+        //Global.timerStarted = false
     }
     
     func setTimerData()
     {
-        if (whichDebateChosen == 0)
+        if (Global.debateChosen == 0)
         {
-            counterCentiseconds = (policyTimes[speechCounter] * 6000)
+            Global.counterCentiseconds = (policyTimes[Global.speechCounter] * 6000)
         }
-        else if (whichDebateChosen == 1)
+        else if (Global.debateChosen == 1)
         {
-            counterCentiseconds = (ldTimes[speechCounter] * 6000)
+            Global.counterCentiseconds = (ldTimes[Global.speechCounter] * 6000)
         }
-        else if (whichDebateChosen == 2)
+        else if (Global.debateChosen == 2)
         {
-            counterCentiseconds = (pfdTimes[speechCounter] * 6000)
+            Global.counterCentiseconds = (pfdTimes[Global.speechCounter] * 6000)
         }
         
-        NSLog("counter centiseconds: \(counterCentiseconds)")
+        NSLog("counter centiseconds: \(Global.counterCentiseconds)")
     }
     
     //Sets the timer label - is called by updateCounter and viewDidLoad
     func setTimerLabel()
     {
-        var centiseconds = counterCentiseconds % 100
-        var seconds = (counterCentiseconds / 100) % 60
-        var minutes = (counterCentiseconds / 100) / 60
-        if (timerStarted)
+        var centiseconds = Global.counterCentiseconds % 100
+        var seconds = (Global.counterCentiseconds / 100) % 60
+        var minutes = (Global.counterCentiseconds / 100) / 60
+        if (Global.timerStarted)
         {
             //When the timer has started
             timercdString = String(format: "%02d:%02d:%02d", minutes, seconds, centiseconds)
@@ -197,20 +213,20 @@ class TimerVC: UIViewController {
     
     func setSpeechLabel()
     {
-        if (whichDebateChosen == 0)
+        if (Global.debateChosen == 0)
         {
-            speechLblStr = policySpeeches[speechCounter]
+            speechLblStr = policySpeeches[Global.speechCounter]
             styleLblStr = "Policy Debate"
             
         }
-        else if (whichDebateChosen == 1)
+        else if (Global.debateChosen == 1)
         {
-            speechLblStr = ldSpeeches[speechCounter]
+            speechLblStr = ldSpeeches[Global.speechCounter]
             styleLblStr = "Lincoln-Douglas Debate"
         }
-        else if (whichDebateChosen == 2)
+        else if (Global.debateChosen == 2)
         {
-            speechLblStr = pfdSpeeches[speechCounter]
+            speechLblStr = pfdSpeeches[Global.speechCounter]
             styleLblStr = "Public Forum Debate"
         }
         
@@ -247,7 +263,7 @@ class TimerVC: UIViewController {
     func showPicker()
     {
         //Sets picker to selected row
-        speechPicker.selectRow(speechCounter, inComponent: 0, animated: true)
+        speechPicker.selectRow(Global.speechCounter, inComponent: 0, animated: true)
         showPickerButton.setTitle("Hide Speeches", forState: UIControlState.Normal)
         
         //Animates the picker
@@ -279,15 +295,15 @@ class TimerVC: UIViewController {
     //Sets data for picker
     func setPickerData()
     {
-        if (whichDebateChosen == 0)
+        if (Global.debateChosen == 0)
         {
             pickerData = policySpeeches
         }
-        else if (whichDebateChosen == 1)
+        else if (Global.debateChosen == 1)
         {
             pickerData = ldSpeeches
         }
-        else if (whichDebateChosen == 2)
+        else if (Global.debateChosen == 2)
         {
             pickerData = pfdSpeeches
         }
@@ -316,8 +332,8 @@ class TimerVC: UIViewController {
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
         //Effectively resets the timer because a new speech has been selected
-        speechCounter = row
-        if (timerStarted){
+        Global.speechCounter = row
+        if (Global.timerStarted){
             stopTimer()
         }
         setTimerData()
@@ -343,12 +359,18 @@ class TimerVC: UIViewController {
         }
         else if (segue.identifier == "segueToPrep") //If going to prep vc
         {
+            if (Global.timerStarted)
+            {
+                Global.timerPaused = true
+                stopTimer()
+            }
+            
             let pVC = segue.destinationViewController as PrepVC
-            pVC.styleDebateChosen = whichDebateChosen
-            pVC.speechCounterStored = speechCounter
-            pVC.centisecondsStored = counterCentiseconds
+            //pVC.styleDebateChosen = Global.debateChosen
+            //pVC.speechCounterStored = speechCounter
+            //pVC.centisecondsStored = Global.counterCentiseconds
             goneToPrep = true
-            pVC.goneToPrepStored = goneToPrep
+            //pVC.goneToPrepStored = goneToPrep
             
         }
     }

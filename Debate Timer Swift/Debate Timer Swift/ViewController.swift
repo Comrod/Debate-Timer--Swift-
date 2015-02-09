@@ -17,30 +17,36 @@ class ViewController: UIViewController {
     @IBOutlet weak var pfdButton: UIButton!
     
     //Variables
-
-    var debateChosen = Int()
-    var segueString = "segueToTimer"
+    /*struct vcState {
+        static var debateChosen = Int()
+        static var segueString = "segueToTimer"
+    }*/
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        Global.speechCounter = 0
+        Global.counterCentiseconds = 0
+        Global.timerStarted = false
+        Global.timerPaused = false
     }
     
     @IBAction func policyButTap(sender: AnyObject)
     {
-        debateChosen = 0
-        //performSegueWithIdentifier("segueToTimer", sender: AnyObject)
-        performSegueWithIdentifier(segueString, sender: self)
+        Global.debateChosen = 0
+        performSegueWithIdentifier(Global.segueString, sender: self)
     }
     @IBAction func ldButTap(sender: AnyObject)
     {
-        debateChosen = 1
-        performSegueWithIdentifier(segueString, sender: self)
+        Global.debateChosen = 1
+        performSegueWithIdentifier(Global.segueString, sender: self)
     }
     
     @IBAction func pfdButTap(sender: AnyObject)
     {
-        debateChosen = 2
-        performSegueWithIdentifier(segueString, sender: self)
+        Global.debateChosen = 2
+        performSegueWithIdentifier(Global.segueString, sender: self)
     }
     
     override func didReceiveMemoryWarning() {
@@ -55,7 +61,7 @@ class ViewController: UIViewController {
         {
             //Pass variables between View Controllers
             let tVC = segue.destinationViewController as TimerVC
-            tVC.whichDebateChosen = debateChosen
+            //tVC.whichDebateChosen = vcState.debateChosen
             
         }
     }

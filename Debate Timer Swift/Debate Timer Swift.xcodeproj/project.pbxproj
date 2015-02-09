@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2448F3C31A857C1700AC748A /* PrepVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2448F3C21A857C1700AC748A /* PrepVC.swift */; };
+		2456AC881A89275100B22C89 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2456AC871A89275100B22C89 /* Global.swift */; };
 		24C733D01A8169D500E2E035 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C733CF1A8169D500E2E035 /* AppDelegate.swift */; };
 		24C733D31A8169D500E2E035 /* Debate_Timer_Swift.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24C733D11A8169D500E2E035 /* Debate_Timer_Swift.xcdatamodeld */; };
 		24C733D51A8169D500E2E035 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C733D41A8169D500E2E035 /* ViewController.swift */; };
@@ -16,7 +17,6 @@
 		24C733DD1A8169D500E2E035 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24C733DB1A8169D500E2E035 /* LaunchScreen.xib */; };
 		24C733E91A8169D500E2E035 /* Debate_Timer_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C733E81A8169D500E2E035 /* Debate_Timer_SwiftTests.swift */; };
 		24C733F71A816F4200E2E035 /* TimerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C733F61A816F4200E2E035 /* TimerVC.swift */; };
-		24DFA3FF1A86A4680027C4F0 /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DFA3FE1A86A4680027C4F0 /* Singleton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		2448F3C21A857C1700AC748A /* PrepVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrepVC.swift; sourceTree = "<group>"; };
+		2456AC871A89275100B22C89 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		24C733CA1A8169D500E2E035 /* Debate Timer Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Debate Timer Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		24C733CE1A8169D500E2E035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24C733CF1A8169D500E2E035 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,7 +44,6 @@
 		24C733E71A8169D500E2E035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24C733E81A8169D500E2E035 /* Debate_Timer_SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debate_Timer_SwiftTests.swift; sourceTree = "<group>"; };
 		24C733F61A816F4200E2E035 /* TimerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimerVC.swift; path = ../TimerVC.swift; sourceTree = "<group>"; };
-		24DFA3FE1A86A4680027C4F0 /* Singleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				24C733CF1A8169D500E2E035 /* AppDelegate.swift */,
-				24DFA3FE1A86A4680027C4F0 /* Singleton.swift */,
+				2456AC871A89275100B22C89 /* Global.swift */,
 				24C733D41A8169D500E2E035 /* ViewController.swift */,
 				24C733F61A816F4200E2E035 /* TimerVC.swift */,
 				2448F3C21A857C1700AC748A /* PrepVC.swift */,
@@ -226,8 +226,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				24C733D51A8169D500E2E035 /* ViewController.swift in Sources */,
-				24DFA3FF1A86A4680027C4F0 /* Singleton.swift in Sources */,
 				24C733D31A8169D500E2E035 /* Debate_Timer_Swift.xcdatamodeld in Sources */,
+				2456AC881A89275100B22C89 /* Global.swift in Sources */,
 				24C733F71A816F4200E2E035 /* TimerVC.swift in Sources */,
 				24C733D01A8169D500E2E035 /* AppDelegate.swift in Sources */,
 				2448F3C31A857C1700AC748A /* PrepVC.swift in Sources */,
