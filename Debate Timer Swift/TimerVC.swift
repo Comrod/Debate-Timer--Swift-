@@ -223,12 +223,28 @@ class TimerVC: UIViewController {
         if (Global.timerStarted)
         {
             //When the timer has started
-            timercdString = String(format: "%02d:%02d:%02d", minutes, seconds, centiseconds)
+            if (Global.isCenti)
+            {
+                timercdString = String(format: "%02d:%02d:%02d", minutes, seconds, centiseconds)
+            }
+            else
+            {
+                timercdString = String(format: "%02d:%02d", minutes, seconds)
+            }
+            
         }
         else
         {
-            timercdString = String(format:"%02d:00:00", minutes)
-            NSLog("Base timer label set; centiseconds: \(minutes)")
+            if (Global.isCenti)
+            {
+                timercdString = String(format:"%02d:00:00", minutes)
+            }
+            else
+            {
+                timercdString = String(format:"%02d:00", minutes)
+            }
+            
+            NSLog("Base timer label set; Minutes: \(minutes)")
         }
         
         timerLabel.text = timercdString

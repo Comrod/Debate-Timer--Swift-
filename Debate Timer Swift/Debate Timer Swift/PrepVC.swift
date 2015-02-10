@@ -254,11 +254,27 @@ class PrepVC: UIViewController {
         
         if (Global.topPrepStarted)
         {
-            topTimerCDStr = String(format: "%02d:%02d:%02d", topMinutes, topSeconds, topCentiseconds)
+            if (Global.isCenti)
+            {
+                topTimerCDStr = String(format: "%02d:%02d:%02d", topMinutes, topSeconds, topCentiseconds)
+            }
+            else
+            {
+                topTimerCDStr = String(format: "%02d:%02d", topMinutes, topSeconds)
+            }
+            
         }
         else
         {
-            topTimerCDStr = String(format:"%02d:00:00", topMinutes)
+            if (Global.isCenti)
+            {
+                topTimerCDStr = String(format:"%02d:00:00", topMinutes)
+            }
+            else
+            {
+                topTimerCDStr = String(format:"%02d:00", topMinutes)
+            }
+            
         }
         
         topPrepTimeLbl.text = topTimerCDStr
@@ -272,11 +288,25 @@ class PrepVC: UIViewController {
         
         if (Global.botPrepStarted)
         {
-            botTimerCDStr = String(format: "%02d:%02d:%02d", botMinutes, botSeconds, botCentiseconds)
+            if (Global.isCenti)
+            {
+                botTimerCDStr = String(format: "%02d:%02d:%02d", botMinutes, botSeconds, botCentiseconds)
+            }
+            else
+            {
+                botTimerCDStr = String(format: "%02d:%02d", botMinutes, botSeconds)
+            }
         }
         else
         {
-            botTimerCDStr = String(format:"%02d:00:00", botMinutes)
+            if (Global.isCenti)
+            {
+                botTimerCDStr = String(format:"%02d:00:00", botMinutes)
+            }
+            else
+            {
+                botTimerCDStr = String(format:"%02d:00", botMinutes)
+            }
         }
         
         botPrepTimeLbl.text = botTimerCDStr

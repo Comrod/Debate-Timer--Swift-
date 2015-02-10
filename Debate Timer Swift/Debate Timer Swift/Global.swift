@@ -27,4 +27,7 @@ struct Global {
     static var botCounterCentiseconds = Int()
     static var botPrepStarted = false
     static var botPrepPaused = false
+    
+    //SettingsVC
+    static var isCenti = Bool()
 }
