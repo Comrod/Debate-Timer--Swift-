@@ -245,6 +245,9 @@
                                 <state key="normal" title="Start">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="topPrepButTap:" destination="lYa-N2-7Vh" eventType="touchUpInside" id="vhF-i2-L1i"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cfF-fb-AKT">
                                 <rect key="frame" x="186" y="244" width="70" height="39"/>
@@ -253,6 +256,9 @@
                                 <state key="normal" title="Reset">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="topPrepResetButTap:" destination="lYa-N2-7Vh" eventType="touchUpInside" id="nSS-WZ-kMM"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="k2f-4U-Rmu">
                                 <rect key="frame" x="54" y="420" width="100" height="38"/>
@@ -261,6 +267,9 @@
                                 <state key="normal" title="Start">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="botPrepButTap:" destination="lYa-N2-7Vh" eventType="touchUpInside" id="EXW-Gg-3px"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pmZ-mF-7ea">
                                 <rect key="frame" x="186" y="419" width="70" height="39"/>
@@ -269,12 +278,22 @@
                                 <state key="normal" title="Reset">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="botPrepResetButTap:" destination="lYa-N2-7Vh" eventType="touchUpInside" id="pjo-XU-Vfe"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="4OO-vE-7cD" id="ibV-KE-6ew"/>
+                        <outlet property="botPrepButton" destination="k2f-4U-Rmu" id="M71-YH-sOW"/>
+                        <outlet property="botPrepResetButton" destination="pmZ-mF-7ea" id="xZ0-K9-OUs"/>
+                        <outlet property="botPrepTimeLbl" destination="MgJ-Hj-X56" id="vfC-Et-e2I"/>
+                        <outlet property="topPrepButton" destination="KEP-mu-apV" id="Gxk-F8-S7N"/>
+                        <outlet property="topPrepResetButton" destination="cfF-fb-AKT" id="fQC-WT-2x8"/>
+                        <outlet property="topPrepTimeLbl" destination="lyf-HU-RvP" id="WaY-lC-oeC"/>
+                        <outlet property="topStartButton" destination="KEP-mu-apV" id="hlo-Uy-it6"/>
                         <segue destination="fYO-Hp-V9U" kind="modal" identifier="seguePrepToTimer" modalTransitionStyle="crossDissolve" id="Nl5-tA-hz3"/>
                     </connections>
                 </viewController>

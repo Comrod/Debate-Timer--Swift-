@@ -21,6 +21,16 @@ class PrepVC: UIViewController {
     //IB Outlets
     @IBOutlet weak var backButton: UIButton!
     
+    @IBOutlet weak var topPrepTimeLbl: UILabel!
+    @IBOutlet weak var topPrepButton: UIButton!
+    @IBOutlet weak var topPrepResetButton: UIButton!
+    
+    @IBOutlet weak var botPrepTimeLbl: UILabel!
+    @IBOutlet weak var botPrepButton: UIButton!
+    @IBOutlet weak var botPrepResetButton: UIButton!
+    
+    
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -33,8 +43,33 @@ class PrepVC: UIViewController {
         performSegueWithIdentifier(segueTimerStr, sender: self)
     }
     
+    //Top Start Button Tap
+    @IBAction func topPrepButTap(sender: AnyObject)
+    {
+        
+    }
     
-    //MARK: - Prep Timer
+    //Top Reset Button Tap
+    @IBAction func topPrepResetButTap(sender: AnyObject)
+    {
+        
+    }
+    
+    //Bot Start Button Tap
+    @IBAction func botPrepButTap(sender: AnyObject)
+    {
+        
+    }
+    
+    //Bot Reset Button Tap
+    @IBAction func botPrepResetButTap(sender: AnyObject)
+    {
+        
+    }
+    
+    
+    
+    //MARK: - Timer Code
     
     //Runs Prep Timer
     func runPrepTimer()
