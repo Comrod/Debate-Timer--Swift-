@@ -19,4 +19,8 @@ struct Global {
     static var speechCounter = Int()
     static var timerStarted = false
     static var timerPaused = false
+    
+    //PrepVC
+    static var topCounterCentiseconds = Int()
+    static var botCounterCentiseconds = Int()
 }
