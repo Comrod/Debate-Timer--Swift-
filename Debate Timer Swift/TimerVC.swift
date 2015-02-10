@@ -42,7 +42,6 @@ class TimerVC: UIViewController {
     var seguePrepStr = "segueToPrep"
     var speechLblStr = String()
     var styleLblStr = String()
-    var goneToPrep = Bool()
     
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var timerButton: UIButton!
@@ -58,7 +57,7 @@ class TimerVC: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        NSLog("Debate chosen: \(Global.debateChosen), Speech counter: \(Global.speechCounter), Centiseconds: \(Global.counterCentiseconds), Gone to Prep: \(goneToPrep)")
+        NSLog("Debate chosen: \(Global.debateChosen), Speech counter: \(Global.speechCounter), Centiseconds: \(Global.counterCentiseconds)")
         
         //Example of singleton
         //Singleton.sharedInstance.centiseconds = 2
@@ -359,6 +358,8 @@ class TimerVC: UIViewController {
         //If going back to the debate selection screen
         if (segue.identifier == "segueToHome")
         {
+            stopTimer()
+            
             //Pass variables between View Controllers
             let vC = segue.destinationViewController as ViewController
             
@@ -372,11 +373,6 @@ class TimerVC: UIViewController {
             }
             
             let pVC = segue.destinationViewController as PrepVC
-            //pVC.styleDebateChosen = Global.debateChosen
-            //pVC.speechCounterStored = speechCounter
-            //pVC.centisecondsStored = Global.counterCentiseconds
-            goneToPrep = true
-            //pVC.goneToPrepStored = goneToPrep
             
         }
     }
