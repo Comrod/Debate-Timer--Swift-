@@ -112,11 +112,6 @@ class PrepVC: UIViewController {
     //Top Reset Button Tap
     @IBAction func topPrepResetButTap(sender: AnyObject)
     {
-        if (Global.botPrepStarted && !Global.botPrepPaused)
-        {
-            
-        }
-        
         topTimerSelected = true
         Global.topPrepStarted = false
         Global.topPrepPaused = false

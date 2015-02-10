@@ -40,6 +40,7 @@ class TimerVC: UIViewController {
     //Other Variables
     var segueHomeStr = "segueToHome"
     var seguePrepStr = "segueToPrep"
+    var segueSettingsStr = "segueToSettings"
     var speechLblStr = String()
     var styleLblStr = String()
     
@@ -51,6 +52,8 @@ class TimerVC: UIViewController {
     @IBOutlet weak var showPickerButton: UIButton!
     @IBOutlet weak var speechPicker: UIPickerView!
     @IBOutlet weak var prepButton: UIButton!
+    @IBOutlet weak var settingsButton: UIButton!
+    @IBOutlet weak var resetButton: UIButton!
     
     override func viewDidLoad()
     {
@@ -124,10 +127,27 @@ class TimerVC: UIViewController {
         }
     }
     
+    @IBAction func resetButTap(sender: AnyObject)
+    {
+        Global.timerStarted = false
+        Global.timerPaused = false
+        stopTimer()
+        timerButton.setTitle(timerButStartStr, forState: UIControlState.Normal)
+        setTimerData()
+        setTimerLabel()
+    }
+    
+    
     @IBAction func backButTap(sender: AnyObject)
     {
         performSegueWithIdentifier(segueHomeStr, sender: self)
     }
+    
+    @IBAction func settingsButTap(sender: AnyObject)
+    {
+        performSegueWithIdentifier(segueSettingsStr, sender: self)
+    }
+    
     
     
     //Runs the timer
