@@ -42,20 +42,24 @@ class PrepVC: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
      
         //Hardcoding right now, will fix later
-        if (Global.debateChosen == 0)
+        if (!Global.topPrepStarted)
         {
-            Global.topCounterCentiseconds = 5*6000
-            Global.botCounterCentiseconds = 5*6000
-        }
-        else if (Global.debateChosen == 1)
-        {
-            Global.topCounterCentiseconds = 4*6000
-            Global.botCounterCentiseconds = 4*6000
+            setTopPrepTimer()
+            NSLog("Setting top prep")
         }
         else
         {
-            Global.topCounterCentiseconds = 2*6000
-            Global.botCounterCentiseconds = 2*6000
+            topPrepButton.setTitle(prepButResumeStr, forState: UIControlState.Normal)
+        }
+        
+        if (!Global.botPrepStarted)
+        {
+            setBotPrepTimer()
+            NSLog("Setting bot prep")
+        }
+        else
+        {
+            botPrepButton.setTitle(prepButResumeStr, forState: UIControlState.Normal)
         }
         
         //Sets Prep Timer Labels
@@ -74,7 +78,7 @@ class PrepVC: UIViewController {
     {
         if (Global.botPrepStarted)
         {
-            Global.botPrepStarted = false
+            Global.botPrepPaused = true
             stopPrepTimer()
             botPrepButton.setTitle(prepButResumeStr, forState: UIControlState.Normal)
         }
@@ -108,6 +112,18 @@ class PrepVC: UIViewController {
     //Top Reset Button Tap
     @IBAction func topPrepResetButTap(sender: AnyObject)
     {
+        if (Global.botPrepStarted && !Global.botPrepPaused)
+        {
+            
+        }
+        
+        topTimerSelected = true
+        Global.topPrepStarted = false
+        Global.topPrepPaused = false
+        stopPrepTimer()
+        topPrepButton.setTitle(prepButStartStr, forState: UIControlState.Normal)
+        setTopPrepTimer()
+        setTopPrepTimerLabel()
         
     }
     
@@ -116,7 +132,7 @@ class PrepVC: UIViewController {
     {
         if (Global.topPrepStarted)
         {
-            Global.topPrepStarted = false
+            Global.topPrepPaused = true
             stopPrepTimer()
             topPrepButton.setTitle(prepButResumeStr, forState: UIControlState.Normal)
         }
@@ -150,11 +166,49 @@ class PrepVC: UIViewController {
     //Bot Reset Button Tap
     @IBAction func botPrepResetButTap(sender: AnyObject)
     {
-        
+        topTimerSelected = false
+        Global.botPrepStarted = false
+        Global.topPrepPaused = false
+        stopPrepTimer()
+        botPrepButton.setTitle(prepButStartStr, forState: UIControlState.Normal)
+        setBotPrepTimer()
+        setBotPrepTimerLabel()
     }
     
     
     //MARK: - Timer Code
+    
+    func setTopPrepTimer()
+    {
+        if (Global.debateChosen == 0)
+        {
+            Global.topCounterCentiseconds = 5*6000
+        }
+        else if (Global.debateChosen == 1)
+        {
+            Global.topCounterCentiseconds = 4*6000
+        }
+        else
+        {
+            Global.topCounterCentiseconds = 2*6000
+        }
+    }
+    
+    func setBotPrepTimer()
+    {
+        if (Global.debateChosen == 0)
+        {
+            Global.botCounterCentiseconds = 5*6000
+        }
+        else if (Global.debateChosen == 1)
+        {
+            Global.botCounterCentiseconds = 4*6000
+        }
+        else
+        {
+            Global.botCounterCentiseconds = 2*6000
+        }
+    }
     
     //Runs Prep Timer
     func runPrepTimer()
