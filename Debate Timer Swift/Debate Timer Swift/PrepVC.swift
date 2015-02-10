@@ -12,11 +12,16 @@ class PrepVC: UIViewController {
     
     //Variables
     var segueTimerStr = "seguePrepToTimer"
-    var timerSelectedTop = Bool()
+    var topTimerSelected = Bool()
     
     //Prep Timer
     var prepTimer = NSTimer()
+    var topTimerCDStr = String()
+    var botTimerCDStr = String()
     
+    var prepButStartStr = "Start"
+    var prepButPauseStr = "Pause"
+    var prepButResumeStr = "Resume"
 
     //IB Outlets
     @IBOutlet weak var backButton: UIButton!
@@ -35,6 +40,27 @@ class PrepVC: UIViewController {
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+     
+        //Hardcoding right now, will fix later
+        if (Global.debateChosen == 0)
+        {
+            Global.topCounterCentiseconds = 5*6000
+            Global.botCounterCentiseconds = 5*6000
+        }
+        else if (Global.debateChosen == 1)
+        {
+            Global.topCounterCentiseconds = 4*6000
+            Global.botCounterCentiseconds = 4*6000
+        }
+        else
+        {
+            Global.topCounterCentiseconds = 2*6000
+            Global.botCounterCentiseconds = 2*6000
+        }
+        
+        //Sets Prep Timer Labels
+        setTopPrepTimerLabel()
+        setBotPrepTimerLabel()
         
     }
     
@@ -46,7 +72,35 @@ class PrepVC: UIViewController {
     //Top Start Button Tap
     @IBAction func topPrepButTap(sender: AnyObject)
     {
+        if (Global.botPrepStarted)
+        {
+            Global.botPrepStarted = false
+            stopPrepTimer()
+            botPrepButton.setTitle(prepButStartStr, forState: UIControlState.Normal)
+        }
         
+        topTimerSelected = true
+        
+        if (!Global.topPrepStarted)
+        {
+            Global.topPrepStarted = true
+            runPrepTimer()
+            topPrepButton.setTitle(prepButPauseStr, forState: UIControlState.Normal)
+        }
+        else
+        {
+            if (Global.topPrepPaused)
+            {
+                topTimerSelected = true
+                runPrepTimer()
+            }
+            else
+            {
+                stopPrepTimer()
+                topPrepButton.setTitle(prepButResumeStr, forState: UIControlState.Normal)
+                Global.topPrepPaused = true
+            }
+        }
     }
     
     //Top Reset Button Tap
@@ -58,7 +112,35 @@ class PrepVC: UIViewController {
     //Bot Start Button Tap
     @IBAction func botPrepButTap(sender: AnyObject)
     {
+        if (Global.topPrepStarted)
+        {
+            Global.topPrepStarted = false
+            stopPrepTimer()
+            topPrepButton.setTitle(prepButStartStr, forState: UIControlState.Normal)
+        }
         
+        topTimerSelected = false
+        
+        if (!Global.botPrepStarted)
+        {
+            Global.botPrepStarted = true
+            runPrepTimer()
+            topPrepButton.setTitle(prepButPauseStr, forState: UIControlState.Normal)
+        }
+        else
+        {
+            if (Global.botPrepPaused)
+            {
+                topTimerSelected = false
+                runPrepTimer()
+            }
+            else
+            {
+                stopPrepTimer()
+                botPrepButton.setTitle(prepButResumeStr, forState: UIControlState.Normal)
+                Global.botPrepPaused = true
+            }
+        }
     }
     
     //Bot Reset Button Tap
@@ -68,28 +150,30 @@ class PrepVC: UIViewController {
     }
     
     
-    
     //MARK: - Timer Code
     
     //Runs Prep Timer
     func runPrepTimer()
     {
         prepTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: ("updatePrepCounter"), userInfo: nil, repeats: true)
-        
     }
     
     //Updates Prep Counter
     func updatePrepCounter()
     {
-        if (timerSelectedTop)
+        if (topTimerSelected)
         {
             if (Global.topCounterCentiseconds > 0)
             {
                 Global.topCounterCentiseconds--
+                setTopPrepTimerLabel()
             }
             else //When the timer has finshed
             {
-                
+                stopPrepTimer()
+                Global.topPrepStarted = false
+                Global.topPrepPaused = false
+                NSLog("Top prep time finished")
             }
         }
         else
@@ -97,12 +181,52 @@ class PrepVC: UIViewController {
             if (Global.botCounterCentiseconds > 0)
             {
                 Global.botCounterCentiseconds--
+                setBotPrepTimerLabel()
             }
             else //When the timer has finished
             {
-                
+                stopPrepTimer()
+                Global.botPrepStarted = false
+                Global.botPrepPaused = false
+                NSLog("Bot prep time finished")
             }
         }
+    }
+    
+    func setTopPrepTimerLabel()
+    {
+        var topCentiseconds = Global.topCounterCentiseconds % 100
+        var topSeconds = (Global.topCounterCentiseconds / 100) % 60
+        var topMinutes = (Global.topCounterCentiseconds / 100) / 60
+        
+        if (Global.topPrepStarted)
+        {
+            topTimerCDStr = String(format: "%02d:%02d:%02d", topMinutes, topSeconds, topCentiseconds)
+        }
+        else
+        {
+            topTimerCDStr = String(format:"%02d:00:00", topMinutes)
+        }
+        
+        topPrepTimeLbl.text = topTimerCDStr
+    }
+    
+    func setBotPrepTimerLabel()
+    {
+        var botCentiseconds = Global.botCounterCentiseconds % 100
+        var botSeconds = (Global.botCounterCentiseconds / 100) % 60
+        var botMinutes = (Global.botCounterCentiseconds / 100) / 60
+        
+        if (Global.botPrepStarted)
+        {
+            botTimerCDStr = String(format: "%02d:%02d:%02d", botMinutes, botSeconds, botCentiseconds)
+        }
+        else
+        {
+            botTimerCDStr = String(format:"%02d:00:00", botMinutes)
+        }
+        
+        botPrepTimeLbl.text = botTimerCDStr
     }
     
     func stopPrepTimer()
@@ -119,8 +243,20 @@ class PrepVC: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         //If going back to the debate selection screen
-        if (segue.identifier == "segueToHome")
+        if (segue.identifier == "seguePrepToTimer")
         {
+            if (Global.topPrepStarted)
+            {
+                stopPrepTimer()
+                Global.topPrepPaused = true
+            }
+            
+            if (Global.botPrepStarted)
+            {
+                stopPrepTimer()
+                Global.botPrepPaused = true
+            }
+            
             //Pass variables between View Controllers
             let tVC = segue.destinationViewController as TimerVC
         }

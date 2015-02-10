@@ -293,7 +293,6 @@
                         <outlet property="topPrepButton" destination="KEP-mu-apV" id="Gxk-F8-S7N"/>
                         <outlet property="topPrepResetButton" destination="cfF-fb-AKT" id="fQC-WT-2x8"/>
                         <outlet property="topPrepTimeLbl" destination="lyf-HU-RvP" id="WaY-lC-oeC"/>
-                        <outlet property="topStartButton" destination="KEP-mu-apV" id="hlo-Uy-it6"/>
                         <segue destination="fYO-Hp-V9U" kind="modal" identifier="seguePrepToTimer" modalTransitionStyle="crossDissolve" id="Nl5-tA-hz3"/>
                     </connections>
                 </viewController>

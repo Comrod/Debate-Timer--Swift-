@@ -22,5 +22,9 @@ struct Global {
     
     //PrepVC
     static var topCounterCentiseconds = Int()
+    static var topPrepStarted = false
+    static var topPrepPaused = false
     static var botCounterCentiseconds = Int()
+    static var botPrepStarted = false
+    static var botPrepPaused = false
 }
