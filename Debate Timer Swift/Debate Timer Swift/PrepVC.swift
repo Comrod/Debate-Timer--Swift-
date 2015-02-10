@@ -76,7 +76,7 @@ class PrepVC: UIViewController {
         {
             Global.botPrepStarted = false
             stopPrepTimer()
-            botPrepButton.setTitle(prepButStartStr, forState: UIControlState.Normal)
+            botPrepButton.setTitle(prepButResumeStr, forState: UIControlState.Normal)
         }
         
         topTimerSelected = true
@@ -92,6 +92,8 @@ class PrepVC: UIViewController {
             if (Global.topPrepPaused)
             {
                 topTimerSelected = true
+                Global.topPrepPaused = false
+                topPrepButton.setTitle(prepButPauseStr, forState: UIControlState.Normal)
                 runPrepTimer()
             }
             else
@@ -116,7 +118,7 @@ class PrepVC: UIViewController {
         {
             Global.topPrepStarted = false
             stopPrepTimer()
-            topPrepButton.setTitle(prepButStartStr, forState: UIControlState.Normal)
+            topPrepButton.setTitle(prepButResumeStr, forState: UIControlState.Normal)
         }
         
         topTimerSelected = false
@@ -125,13 +127,15 @@ class PrepVC: UIViewController {
         {
             Global.botPrepStarted = true
             runPrepTimer()
-            topPrepButton.setTitle(prepButPauseStr, forState: UIControlState.Normal)
+            botPrepButton.setTitle(prepButPauseStr, forState: UIControlState.Normal)
         }
         else
         {
             if (Global.botPrepPaused)
             {
                 topTimerSelected = false
+                Global.botPrepPaused = false
+                botPrepButton.setTitle(prepButPauseStr, forState: UIControlState.Normal)
                 runPrepTimer()
             }
             else

@@ -27,6 +27,8 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         Global.speechCounter = 0
+        Global.topCounterCentiseconds = 0
+        Global.botCounterCentiseconds = 0
         Global.timerStarted = false
         Global.timerPaused = false
     }
