@@ -30,6 +30,17 @@ class ViewController: UIViewController {
         
     }
     
+    override func viewDidAppear(animated: Bool)
+    {
+        //If homeskipping is on
+        if (Global.isHomeSkip)
+        {
+            //Moves straight to timer with primary style of debate
+            Global.debateChosen = Global.primaryStyle
+            performSegueWithIdentifier(Global.segueString, sender: self)
+        }
+    }
+    
     @IBAction func policyButTap(sender: AnyObject)
     {
         Global.debateChosen = 0

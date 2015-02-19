@@ -279,14 +279,49 @@
                                     <segue destination="fYO-Hp-V9U" kind="modal" identifier="segueSettingsToTimer" modalTransitionStyle="crossDissolve" id="fDu-KT-kQZ"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="8QY-nG-Ril">
+                                <rect key="frame" x="50" y="281" width="221" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="CX"/>
+                                    <segment title="LD"/>
+                                    <segment title="PFD"/>
+                                </segments>
+                                <connections>
+                                    <action selector="primaryStyleValueChanged:" destination="WAx-CB-7db" eventType="valueChanged" id="owl-SV-Iff"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Primary Style" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Zn3-05-cyR">
+                                <rect key="frame" x="73" y="236" width="175" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home Skipping" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hmy-Zw-2UL">
+                                <rect key="frame" x="44" y="335" width="175" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="KbR-jL-Yux">
+                                <rect key="frame" x="227" y="342" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="homeSkipSwitchValueChanged:" destination="WAx-CB-7db" eventType="valueChanged" id="KCS-WB-0Wp"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="9SL-kQ-yCI" id="MBk-h1-xnX"/>
                         <outlet property="centisecondSegControl" destination="9m1-3B-LyE" id="RPQ-u2-Dhx"/>
+                        <outlet property="homeSkipSwitch" destination="KbR-jL-Yux" id="FrP-Dw-VeI"/>
                         <outlet property="prepLabel" destination="DdD-n9-jqr" id="jxC-jG-KgD"/>
                         <outlet property="prepStepper" destination="O3h-tp-wve" id="Z7D-if-74p"/>
+                        <outlet property="primaryStyleSegControl" destination="8QY-nG-Ril" id="ZoU-BB-3Ez"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KiX-wr-vzI" userLabel="First Responder" sceneMemberID="firstResponder"/>

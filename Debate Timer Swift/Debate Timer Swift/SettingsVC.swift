@@ -17,6 +17,8 @@ class SettingsVC: UIViewController {
     
     //IB Outlets
     @IBOutlet weak var centisecondSegControl: UISegmentedControl!
+    @IBOutlet weak var primaryStyleSegControl: UISegmentedControl!
+    @IBOutlet weak var homeSkipSwitch: UISwitch!
     @IBOutlet weak var prepStepper: UIStepper!
     @IBOutlet weak var prepLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
@@ -39,6 +41,10 @@ class SettingsVC: UIViewController {
             centisecondSegControl.selectedSegmentIndex = 1
         }
         
+        //Set the value of primary style segment control and home skip
+        primaryStyleSegControl.selectedSegmentIndex = Global.primaryStyle
+        homeSkipSwitch.on = Global.isHomeSkip
+        
         //Set the value of prep stepper
         prepStepper.value = Double(Global.basePrep)
         prepLabel.text = String(Global.basePrep)
@@ -57,6 +63,29 @@ class SettingsVC: UIViewController {
             Global.isCenti = false
             defaults.setBool(false, forKey: "isCenti")
         }
+    }
+    
+    @IBAction func primaryStyleValueChanged(sender: AnyObject)
+    {
+        if (primaryStyleSegControl.selectedSegmentIndex == 0)
+        {
+            Global.primaryStyle = 0
+        }
+        else if (primaryStyleSegControl.selectedSegmentIndex == 1)
+        {
+            Global.primaryStyle = 1
+        }
+        else if (primaryStyleSegControl.selectedSegmentIndex == 2)
+        {
+            Global.primaryStyle = 2
+        }
+        defaults.setInteger(Global.primaryStyle, forKey: "primaryStyle")
+    }
+    
+    @IBAction func homeSkipSwitchValueChanged(sender: AnyObject)
+    {
+        Global.isHomeSkip = homeSkipSwitch.on
+        defaults.setBool(Global.isHomeSkip, forKey: "isHomeSkip")
     }
     
     @IBAction func prepStepperValueChanged(sender: AnyObject)
