@@ -411,6 +411,14 @@ class TimerVC: UIViewController {
             let pVC = segue.destinationViewController as PrepVC
             
         }
+        else if (segue.identifier == "segueToSettings")
+        {
+            if (Global.timerStarted)
+            {
+                Global.timerPaused = true
+                stopTimer()
+            }
+        }
     }
     
 }

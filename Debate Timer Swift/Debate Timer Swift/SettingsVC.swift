@@ -11,9 +11,13 @@ import UIKit
 class SettingsVC: UIViewController {
     
     //Variables
+    var segueSettingsToTimer = "segueSettingsToTimer"
+    let defaults = NSUserDefaults.standardUserDefaults()
+    
     
     //IB Outlets
     @IBOutlet weak var centisecondSegControl: UISegmentedControl!
+    @IBOutlet weak var backButton: UIButton!
     
     
     override func viewDidLoad()
@@ -42,12 +46,20 @@ class SettingsVC: UIViewController {
         if (centisecondSegControl.selectedSegmentIndex == 0)
         {
             Global.isCenti = true
+            defaults.setBool(true, forKey: "isCenti")
         }
         else if (centisecondSegControl.selectedSegmentIndex == 1)
         {
             Global.isCenti = false
+            defaults.setBool(false, forKey: "isCenti")
         }
     }
+    
+    @IBAction func backButTap(sender: AnyObject)
+    {
+        performSegueWithIdentifier(segueSettingsToTimer, sender: self)
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

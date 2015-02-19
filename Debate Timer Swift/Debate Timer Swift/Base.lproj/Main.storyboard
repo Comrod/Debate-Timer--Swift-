@@ -246,16 +246,29 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9SL-kQ-yCI">
+                                <rect key="frame" x="20" y="506" width="56" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButTap:" destination="WAx-CB-7db" eventType="touchUpInside" id="rl5-KS-IEl"/>
+                                    <segue destination="fYO-Hp-V9U" kind="modal" identifier="segueSettingsToTimer" modalTransitionStyle="crossDissolve" id="fDu-KT-kQZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="9SL-kQ-yCI" id="MBk-h1-xnX"/>
                         <outlet property="centisecondSegControl" destination="9m1-3B-LyE" id="RPQ-u2-Dhx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KiX-wr-vzI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="629" y="901"/>
+            <point key="canvasLocation" x="629" y="1041"/>
         </scene>
         <!--PrepVC-->
         <scene sceneID="cbT-Fc-y73">
@@ -383,6 +396,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Nl5-tA-hz3"/>
+        <segue reference="fDu-KT-kQZ"/>
     </inferredMetricsTieBreakers>
 </document>
