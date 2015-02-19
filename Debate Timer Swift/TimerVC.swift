@@ -169,6 +169,7 @@ class TimerVC: UIViewController {
         timerButton.setTitle(timerButPauseStr, forState: UIControlState.Normal)
         
         Global.timerPaused = false
+        UIApplication.sharedApplication().idleTimerDisabled = false
     }
     
     //Actual timer method - reduces the counter until counter = 0
@@ -206,6 +207,7 @@ class TimerVC: UIViewController {
     {
         timer.invalidate()
         //Global.timerStarted = false
+        UIApplication.sharedApplication().idleTimerDisabled = false
     }
     
     func setTimerData()

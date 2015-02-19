@@ -211,6 +211,7 @@ class PrepVC: UIViewController {
     func runPrepTimer()
     {
         prepTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: ("updatePrepCounter"), userInfo: nil, repeats: true)
+        UIApplication.sharedApplication().idleTimerDisabled = false
     }
     
     //Updates Prep Counter
@@ -317,6 +318,7 @@ class PrepVC: UIViewController {
     func stopPrepTimer()
     {
         prepTimer.invalidate()
+        UIApplication.sharedApplication().idleTimerDisabled = false
     }
     
     
