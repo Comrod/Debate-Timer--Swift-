@@ -175,7 +175,8 @@ class PrepVC: UIViewController {
     
     func setTopPrepTimer()
     {
-        if (Global.debateChosen == 0)
+        Global.topCounterCentiseconds = Global.basePrep*6000
+        /*if (Global.debateChosen == 0)
         {
             Global.topCounterCentiseconds = 5*6000
         }
@@ -186,12 +187,13 @@ class PrepVC: UIViewController {
         else
         {
             Global.topCounterCentiseconds = 2*6000
-        }
+        }*/
     }
     
     func setBotPrepTimer()
     {
-        if (Global.debateChosen == 0)
+        Global.topCounterCentiseconds = Global.basePrep*6000
+        /*if (Global.debateChosen == 0)
         {
             Global.botCounterCentiseconds = 5*6000
         }
@@ -202,7 +204,7 @@ class PrepVC: UIViewController {
         else
         {
             Global.botCounterCentiseconds = 2*6000
-        }
+        }*/
     }
     
     //Runs Prep Timer

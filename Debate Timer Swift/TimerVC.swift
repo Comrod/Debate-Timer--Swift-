@@ -17,7 +17,7 @@ class TimerVC: UIViewController {
     var policySpeeches: [String] = ["1AC", "CX", "1NC", "CX", "2AC", "CX", "2NC", "CX", "1NR", "1AR", "2NR", "2AR", "Round Finished"]
     var ldTimes: [Int] = [6, 3, 7, 3, 4, 6, 3, 0]
     var ldSpeeches: [String] = ["AC", "CX", "NC (1NR)", "CX", "1AR", "NR (2NR)", "2AR", "Round Finished"]
-    var pfdTimes: [Int] = [1, 4, 3, 4, 4, 3, 2, 2, 3, 2, 2, 0]
+    var pfdTimes: [Int] = [4, 4, 3, 4, 4, 3, 2, 2, 3, 2, 2, 0]
     var pfdSpeeches: [String] = ["Team A Constructive", "Team B Constructive", "Crossfire", "Team A Rebuttal", "Team B Rebuttal", "Crossfire", "Team A Summary", "Team B Summary", "Grand Crossfire", "Team A Final", "Team B Final", "Round Finished"]
     
     //Timer Variables
@@ -78,7 +78,19 @@ class TimerVC: UIViewController {
             //Sets the Timer Button to "Resume Timer"
             timerButton.setTitle(timerButResumeStr, forState: UIControlState.Normal)
         }
-
+        
+        //Sets prep time
+        if (!Global.topPrepStarted)
+        {
+            Global.topCounterCentiseconds = Global.basePrep*6000
+        }
+        
+        if (!Global.botPrepStarted)
+        {
+            Global.botCounterCentiseconds = Global.basePrep*6000
+        }
+        
+        
         
         //Sets picker data
         setPickerData()

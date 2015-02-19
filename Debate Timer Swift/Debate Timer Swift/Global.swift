@@ -30,4 +30,6 @@ struct Global {
     
     //SettingsVC
     static var isCenti = Bool()
+    static var basePrep = Int()
+    static var openedBefore = Bool()
 }

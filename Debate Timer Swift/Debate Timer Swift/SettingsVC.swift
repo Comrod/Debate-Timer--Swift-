@@ -13,10 +13,12 @@ class SettingsVC: UIViewController {
     //Variables
     var segueSettingsToTimer = "segueSettingsToTimer"
     let defaults = NSUserDefaults.standardUserDefaults()
-    
+
     
     //IB Outlets
     @IBOutlet weak var centisecondSegControl: UISegmentedControl!
+    @IBOutlet weak var prepStepper: UIStepper!
+    @IBOutlet weak var prepLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
     
     
@@ -37,9 +39,11 @@ class SettingsVC: UIViewController {
             centisecondSegControl.selectedSegmentIndex = 1
         }
         
+        //Set the value of prep stepper
+        prepStepper.value = Double(Global.basePrep)
+        prepLabel.text = String(Global.basePrep)
         
     }
-    
     
     @IBAction func centisecondValueChanged(sender: AnyObject)
     {
@@ -55,6 +59,21 @@ class SettingsVC: UIViewController {
         }
     }
     
+    @IBAction func prepStepperValueChanged(sender: AnyObject)
+    {
+        NSLog("Prep value changed")
+        
+        //Sets the value of base prep to be whatever the stepper is
+        Global.basePrep = Int(prepStepper.value)
+        prepLabel.text = String(Global.basePrep)
+        
+        Global.topPrepStarted = false
+        Global.topPrepPaused = false
+        Global.botPrepStarted = false
+        Global.botPrepPaused = false
+    }
+    
+    
     @IBAction func backButTap(sender: AnyObject)
     {
         performSegueWithIdentifier(segueSettingsToTimer, sender: self)
@@ -67,7 +86,10 @@ class SettingsVC: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
+        if (segue.identifier == "segueSettingsToTimer")
+        {
+            
+        }
     }
     
 }

@@ -10,17 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
-
+    let defaults = NSUserDefaults.standardUserDefaults()
+    
     //Button outlets
     @IBOutlet weak var policyButton: UIButton!
     @IBOutlet weak var ldButton: UIButton!
     @IBOutlet weak var pfdButton: UIButton!
     
-    //Variables
-    /*struct vcState {
-        static var debateChosen = Int()
-        static var segueString = "segueToTimer"
-    }*/
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,22 +27,36 @@ class ViewController: UIViewController {
         Global.botPrepStarted = false
         Global.timerStarted = false
         Global.timerPaused = false
+        
     }
     
     @IBAction func policyButTap(sender: AnyObject)
     {
         Global.debateChosen = 0
+        
+        if (!Global.openedBefore)
+        {
+            Global.basePrep = 5
+        }
         performSegueWithIdentifier(Global.segueString, sender: self)
     }
     @IBAction func ldButTap(sender: AnyObject)
     {
         Global.debateChosen = 1
+        if (!Global.openedBefore)
+        {
+            Global.basePrep = 4
+        }
         performSegueWithIdentifier(Global.segueString, sender: self)
     }
     
     @IBAction func pfdButTap(sender: AnyObject)
     {
         Global.debateChosen = 2
+        if (!Global.openedBefore)
+        {
+            Global.basePrep = 2
+        }
         performSegueWithIdentifier(Global.segueString, sender: self)
     }
     
@@ -60,9 +70,11 @@ class ViewController: UIViewController {
         
         if (segue.identifier == "segueToTimer")
         {
+            defaults.setBool(true, forKey: "openedBefore")
+            Global.openedBefore = defaults.boolForKey("openedBefore")
+            
             //Pass variables between View Controllers
             let tVC = segue.destinationViewController as TimerVC
-            //tVC.whichDebateChosen = vcState.debateChosen
             
         }
     }
