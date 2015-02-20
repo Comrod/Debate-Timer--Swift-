@@ -42,11 +42,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Global.isCenti = defaults.boolForKey("isCenti")
         Global.primaryStyle = defaults.integerForKey("primaryStyle")
         Global.isHomeSkip = defaults.boolForKey("isHomeSkip")
+        Global.appInitStart = defaults.boolForKey("appInitStart")
+
     }
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
+        
+        //Sets appInitStart when the app is initially opened so that it can skip the next time it is opened
+        Global.appInitStart = false
+        NSLog("Appinitstart set to false")
+        defaults.setBool(Global.appInitStart, forKey: "appInitStart")
+        
         self.saveContext()
     }
 

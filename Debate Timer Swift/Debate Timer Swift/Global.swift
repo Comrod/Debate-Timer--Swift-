@@ -34,4 +34,5 @@ struct Global {
     static var openedBefore = Bool()
     static var primaryStyle = Int()
     static var isHomeSkip = Bool()
+    static var appInitStart = true
 }

@@ -276,7 +276,6 @@
                                 </state>
                                 <connections>
                                     <action selector="backButTap:" destination="WAx-CB-7db" eventType="touchUpInside" id="rl5-KS-IEl"/>
-                                    <segue destination="fYO-Hp-V9U" kind="modal" identifier="segueSettingsToTimer" modalTransitionStyle="crossDissolve" id="fDu-KT-kQZ"/>
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="8QY-nG-Ril">
@@ -322,6 +321,7 @@
                         <outlet property="prepLabel" destination="DdD-n9-jqr" id="jxC-jG-KgD"/>
                         <outlet property="prepStepper" destination="O3h-tp-wve" id="Z7D-if-74p"/>
                         <outlet property="primaryStyleSegControl" destination="8QY-nG-Ril" id="ZoU-BB-3Ez"/>
+                        <segue destination="fYO-Hp-V9U" kind="modal" identifier="segueSettingsToTimer" modalTransitionStyle="crossDissolve" id="z4P-Zk-Lzi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KiX-wr-vzI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -454,6 +454,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="fDu-KT-kQZ"/>
+        <segue reference="z4P-Zk-Lzi"/>
     </inferredMetricsTieBreakers>
 </document>

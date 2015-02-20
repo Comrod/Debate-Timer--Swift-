@@ -28,16 +28,26 @@ class ViewController: UIViewController {
         Global.timerStarted = false
         Global.timerPaused = false
         
+        if (Global.appInitStart)
+        {
+            NSLog("App Init Start is true: %@", Global.appInitStart)
+        }
+        
+        
     }
     
     override func viewDidAppear(animated: Bool)
     {
         //If homeskipping is on
-        if (Global.isHomeSkip)
+        if (!Global.appInitStart)
         {
-            //Moves straight to timer with primary style of debate
-            Global.debateChosen = Global.primaryStyle
-            performSegueWithIdentifier(Global.segueString, sender: self)
+            if (Global.isHomeSkip)
+            {
+                //Moves straight to timer with primary style of debate
+                Global.debateChosen = Global.primaryStyle
+                NSLog("Running homeskip")
+                performSegueWithIdentifier(Global.segueString, sender: self)
+            }
         }
     }
     
