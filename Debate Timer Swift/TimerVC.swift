@@ -43,6 +43,7 @@ class TimerVC: UIViewController {
     var segueSettingsStr = "segueToSettings"
     var speechLblStr = String()
     var styleLblStr = String()
+    let defaults = NSUserDefaults.standardUserDefaults()
     
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var timerButton: UIButton!
@@ -64,6 +65,8 @@ class TimerVC: UIViewController {
         
         //Example of singleton
         //Singleton.sharedInstance.centiseconds = 2
+        
+        defaults.setBool(false, forKey: "isFirstLaunch")
         
         
         //If the timer hasn't started
@@ -169,7 +172,7 @@ class TimerVC: UIViewController {
         timerButton.setTitle(timerButPauseStr, forState: UIControlState.Normal)
         
         Global.timerPaused = false
-        UIApplication.sharedApplication().idleTimerDisabled = false
+        UIApplication.sharedApplication().idleTimerDisabled = true
     }
     
     //Actual timer method - reduces the counter until counter = 0
@@ -206,7 +209,6 @@ class TimerVC: UIViewController {
     func stopTimer()
     {
         timer.invalidate()
-        //Global.timerStarted = false
         UIApplication.sharedApplication().idleTimerDisabled = false
     }
     

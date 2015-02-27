@@ -27,11 +27,7 @@ class ViewController: UIViewController {
         Global.botPrepStarted = false
         Global.timerStarted = false
         Global.timerPaused = false
-        
-        if (Global.appInitStart)
-        {
-            NSLog("App Init Start is true: %@", Global.appInitStart)
-        }
+
         
         
     }
@@ -39,8 +35,9 @@ class ViewController: UIViewController {
     override func viewDidAppear(animated: Bool)
     {
         //If homeskipping is on
-        if (!Global.appInitStart)
+        if (defaults.boolForKey("isFirstLaunch"))
         {
+            NSLog("Is First Launch")
             if (Global.isHomeSkip)
             {
                 //Moves straight to timer with primary style of debate
@@ -74,6 +71,7 @@ class ViewController: UIViewController {
     @IBAction func pfdButTap(sender: AnyObject)
     {
         Global.debateChosen = 2
+        
         if (!Global.openedBefore)
         {
             Global.basePrep = 2
@@ -89,10 +87,12 @@ class ViewController: UIViewController {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
+        
         if (segue.identifier == "segueToTimer")
         {
             defaults.setBool(true, forKey: "openedBefore")
             Global.openedBefore = defaults.boolForKey("openedBefore")
+            
             
             //Pass variables between View Controllers
             let tVC = segue.destinationViewController as TimerVC

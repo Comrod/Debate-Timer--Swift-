@@ -18,6 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //Sets first launch to true
+        defaults.setBool(true, forKey: "isFirstLaunch")
+        
         return true
     }
 
@@ -42,7 +46,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Global.isCenti = defaults.boolForKey("isCenti")
         Global.primaryStyle = defaults.integerForKey("primaryStyle")
         Global.isHomeSkip = defaults.boolForKey("isHomeSkip")
-        Global.appInitStart = defaults.boolForKey("appInitStart")
 
     }
 
@@ -51,9 +54,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Saves changes in the application's managed object context before the application terminates.
         
         //Sets appInitStart when the app is initially opened so that it can skip the next time it is opened
-        Global.appInitStart = false
-        NSLog("Appinitstart set to false")
-        defaults.setBool(Global.appInitStart, forKey: "appInitStart")
+    
+        //Sets isFirstLaunch to true - means that HomeSkip will run next time ViewController is opened
+        defaults.setBool(true, forKey: "isFirstLaunch")
         
         self.saveContext()
     }

@@ -49,6 +49,7 @@ class SettingsVC: UIViewController {
         prepStepper.value = Double(Global.basePrep)
         prepLabel.text = String(Global.basePrep)
         
+        
     }
     
     @IBAction func centisecondValueChanged(sender: AnyObject)
@@ -84,7 +85,17 @@ class SettingsVC: UIViewController {
     
     @IBAction func homeSkipSwitchValueChanged(sender: AnyObject)
     {
-        Global.isHomeSkip = homeSkipSwitch.on
+        //Global.isHomeSkip = homeSkipSwitch.on
+        
+        if (homeSkipSwitch.on)
+        {
+            Global.isHomeSkip = true
+        }
+        else
+        {
+            Global.isHomeSkip = false
+        }
+        
         defaults.setBool(Global.isHomeSkip, forKey: "isHomeSkip")
     }
     

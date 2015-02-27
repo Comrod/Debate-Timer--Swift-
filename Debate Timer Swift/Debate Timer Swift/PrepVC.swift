@@ -66,6 +66,7 @@ class PrepVC: UIViewController {
         setTopPrepTimerLabel()
         setBotPrepTimerLabel()
         
+        
     }
     
     @IBAction func backButTap(sender: AnyObject)
@@ -211,7 +212,7 @@ class PrepVC: UIViewController {
     func runPrepTimer()
     {
         prepTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: ("updatePrepCounter"), userInfo: nil, repeats: true)
-        UIApplication.sharedApplication().idleTimerDisabled = false
+        UIApplication.sharedApplication().idleTimerDisabled = true
     }
     
     //Updates Prep Counter
