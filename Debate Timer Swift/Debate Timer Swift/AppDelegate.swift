@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Global.isCenti = defaults.boolForKey("isCenti")
         Global.primaryStyle = defaults.integerForKey("primaryStyle")
         Global.isHomeSkip = defaults.boolForKey("isHomeSkip")
+        Global.basePrep = defaults.integerForKey("basePrep")
 
         
         return true

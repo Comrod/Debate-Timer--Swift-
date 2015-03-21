@@ -109,6 +109,8 @@ class SettingsVC: UIViewController {
         Global.topPrepPaused = false
         Global.botPrepStarted = false
         Global.botPrepPaused = false
+        
+        defaults.setInteger(Global.basePrep, forKey: "basePrep")
     }
     
     
