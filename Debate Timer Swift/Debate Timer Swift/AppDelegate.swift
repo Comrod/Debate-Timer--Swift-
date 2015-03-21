@@ -22,6 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Sets first launch to true
         defaults.setBool(true, forKey: "isFirstLaunch")
         
+        //Sets isFirstLaunch to true - means that HomeSkip will run next time ViewController is opened
+        defaults.setBool(true, forKey: "isFirstLaunch")
+        
         return true
     }
 
@@ -52,11 +55,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
-        
-        //Sets appInitStart when the app is initially opened so that it can skip the next time it is opened
-    
-        //Sets isFirstLaunch to true - means that HomeSkip will run next time ViewController is opened
-        defaults.setBool(true, forKey: "isFirstLaunch")
         
         self.saveContext()
     }

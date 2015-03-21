@@ -60,6 +60,7 @@ class TimerVC: UIViewController {
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+       
         
         NSLog("Debate chosen: \(Global.debateChosen), Speech counter: \(Global.speechCounter), Centiseconds: \(Global.counterCentiseconds)")
         
@@ -86,6 +87,7 @@ class TimerVC: UIViewController {
         if (!Global.topPrepStarted)
         {
             Global.topCounterCentiseconds = Global.basePrep*6000
+            NSLog("top prep is reset in timervc")
         }
         
         if (!Global.botPrepStarted)

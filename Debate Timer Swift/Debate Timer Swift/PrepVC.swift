@@ -40,7 +40,7 @@ class PrepVC: UIViewController {
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-     
+        
         //Hardcoding right now, will fix later
         if (!Global.topPrepStarted)
         {
@@ -51,6 +51,7 @@ class PrepVC: UIViewController {
         {
             topPrepButton.setTitle(prepButResumeStr, forState: UIControlState.Normal)
         }
+        
         
         if (!Global.botPrepStarted)
         {
@@ -65,8 +66,6 @@ class PrepVC: UIViewController {
         //Sets Prep Timer Labels
         setTopPrepTimerLabel()
         setBotPrepTimerLabel()
-        
-        
     }
     
     @IBAction func backButTap(sender: AnyObject)
@@ -77,6 +76,7 @@ class PrepVC: UIViewController {
     //Top Start Button Tap
     @IBAction func topPrepButTap(sender: AnyObject)
     {
+        //Stop bot prep timer if it is running
         if (Global.botPrepStarted)
         {
             Global.botPrepPaused = true
@@ -86,15 +86,15 @@ class PrepVC: UIViewController {
         
         topTimerSelected = true
         
-        if (!Global.topPrepStarted)
+        if (!Global.topPrepStarted)//If top prep timer has not started yet
         {
-            Global.topPrepStarted = true
             runPrepTimer()
+            Global.topPrepStarted = true
             topPrepButton.setTitle(prepButPauseStr, forState: UIControlState.Normal)
         }
         else
         {
-            if (Global.topPrepPaused)
+            if (Global.topPrepPaused)//If timer is paused
             {
                 topTimerSelected = true
                 Global.topPrepPaused = false
@@ -177,35 +177,11 @@ class PrepVC: UIViewController {
     func setTopPrepTimer()
     {
         Global.topCounterCentiseconds = Global.basePrep*6000
-        /*if (Global.debateChosen == 0)
-        {
-            Global.topCounterCentiseconds = 5*6000
-        }
-        else if (Global.debateChosen == 1)
-        {
-            Global.topCounterCentiseconds = 4*6000
-        }
-        else
-        {
-            Global.topCounterCentiseconds = 2*6000
-        }*/
     }
     
     func setBotPrepTimer()
     {
-        Global.topCounterCentiseconds = Global.basePrep*6000
-        /*if (Global.debateChosen == 0)
-        {
-            Global.botCounterCentiseconds = 5*6000
-        }
-        else if (Global.debateChosen == 1)
-        {
-            Global.botCounterCentiseconds = 4*6000
-        }
-        else
-        {
-            Global.botCounterCentiseconds = 2*6000
-        }*/
+        Global.botCounterCentiseconds = Global.basePrep*6000
     }
     
     //Runs Prep Timer
