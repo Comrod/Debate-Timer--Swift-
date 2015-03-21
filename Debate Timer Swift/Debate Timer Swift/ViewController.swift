@@ -11,6 +11,8 @@ import UIKit
 class ViewController: UIViewController {
 
     let defaults = NSUserDefaults.standardUserDefaults()
+    var homeSkipDelay = NSTimer()
+    var delayIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0, 200, 200)) as UIActivityIndicatorView
     
     //Button outlets
     @IBOutlet weak var policyButton: UIButton!
@@ -28,6 +30,10 @@ class ViewController: UIViewController {
         Global.timerStarted = false
         Global.timerPaused = false
 
+        //Delay Indicator for home skipping
+        delayIndicator.center = self.view.center
+        delayIndicator.hidesWhenStopped = true
+        delayIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
     }
     
     override func viewDidAppear(animated: Bool)
@@ -41,12 +47,19 @@ class ViewController: UIViewController {
             
             if (Global.isHomeSkip)
             {
-                //Moves straight to timer with primary style of debate
-                Global.debateChosen = Global.primaryStyle
-                NSLog("Running homeskip")
-                performSegueWithIdentifier(Global.segueString, sender: self)
+                view.addSubview(delayIndicator)
+                delayIndicator.startAnimating()
+                homeSkipDelay = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: ("doHomeSkip"), userInfo: nil, repeats: false)
             }
         }
+    }
+    
+    func doHomeSkip()//Moves straight to timer with primary style of debate
+    {
+        Global.debateChosen = Global.primaryStyle
+        NSLog("Running homeskip")
+        delayIndicator.stopAnimating()
+        performSegueWithIdentifier(Global.segueString, sender: self)
     }
     
     @IBAction func policyButTap(sender: AnyObject)
