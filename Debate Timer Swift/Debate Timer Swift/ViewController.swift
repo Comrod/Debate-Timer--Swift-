@@ -28,8 +28,6 @@ class ViewController: UIViewController {
         Global.timerStarted = false
         Global.timerPaused = false
 
-        
-        
     }
     
     override func viewDidAppear(animated: Bool)
@@ -37,7 +35,10 @@ class ViewController: UIViewController {
         //If homeskipping is on
         if (defaults.boolForKey("isFirstLaunch"))
         {
+            Global.isHomeSkip = defaults.boolForKey("isHomeSkip")
+            Global.primaryStyle = defaults.integerForKey("primaryStyle")
             NSLog("Is First Launch")
+            
             if (Global.isHomeSkip)
             {
                 //Moves straight to timer with primary style of debate

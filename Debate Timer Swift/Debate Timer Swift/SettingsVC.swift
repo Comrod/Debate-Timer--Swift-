@@ -85,8 +85,6 @@ class SettingsVC: UIViewController {
     
     @IBAction func homeSkipSwitchValueChanged(sender: AnyObject)
     {
-        //Global.isHomeSkip = homeSkipSwitch.on
-        
         if (homeSkipSwitch.on)
         {
             Global.isHomeSkip = true
