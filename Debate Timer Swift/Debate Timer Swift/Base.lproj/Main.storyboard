@@ -140,7 +140,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="SWe-4l-jnI">
-                                <rect key="frame" x="18" y="468" width="56" height="36"/>
+                                <rect key="frame" x="18" y="466" width="56" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Prep">
@@ -173,7 +173,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="AXJ-Zt-Pbi">
-                                <rect key="frame" x="238" y="468" width="66" height="36"/>
+                                <rect key="frame" x="238" y="466" width="66" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Reset">
@@ -434,9 +434,11 @@
                     </view>
                     <connections>
                         <outlet property="backButton" destination="4OO-vE-7cD" id="ibV-KE-6ew"/>
+                        <outlet property="botLabel" destination="Il6-NB-w9D" id="09j-rk-leF"/>
                         <outlet property="botPrepButton" destination="k2f-4U-Rmu" id="M71-YH-sOW"/>
                         <outlet property="botPrepResetButton" destination="pmZ-mF-7ea" id="xZ0-K9-OUs"/>
                         <outlet property="botPrepTimeLbl" destination="MgJ-Hj-X56" id="vfC-Et-e2I"/>
+                        <outlet property="topLabel" destination="Pw0-x5-gZp" id="iEy-00-Urw"/>
                         <outlet property="topPrepButton" destination="KEP-mu-apV" id="Gxk-F8-S7N"/>
                         <outlet property="topPrepResetButton" destination="cfF-fb-AKT" id="fQC-WT-2x8"/>
                         <outlet property="topPrepTimeLbl" destination="lyf-HU-RvP" id="WaY-lC-oeC"/>
@@ -454,6 +456,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="z4P-Zk-Lzi"/>
+        <segue reference="Nl5-tA-hz3"/>
     </inferredMetricsTieBreakers>
 </document>

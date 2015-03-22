@@ -26,10 +26,13 @@ class PrepVC: UIViewController {
     //IB Outlets
     @IBOutlet weak var backButton: UIButton!
     
+    
+    @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var topPrepTimeLbl: UILabel!
     @IBOutlet weak var topPrepButton: UIButton!
     @IBOutlet weak var topPrepResetButton: UIButton!
     
+    @IBOutlet weak var botLabel: UILabel!
     @IBOutlet weak var botPrepTimeLbl: UILabel!
     @IBOutlet weak var botPrepButton: UIButton!
     @IBOutlet weak var botPrepResetButton: UIButton!
@@ -40,6 +43,17 @@ class PrepVC: UIViewController {
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        if (Global.debateChosen < 2)//Policy or LD chosen
+        {
+            topLabel.text = "Aff Prep Time"
+            botLabel.text = "Neg Prep Time"
+        }
+        else//PFD chosen
+        {
+            topLabel.text = "Pro Prep Time"
+            botLabel.text = "Con Prep Time"
+        }
         
         //Hardcoding right now, will fix later
         if (!Global.topPrepStarted)
