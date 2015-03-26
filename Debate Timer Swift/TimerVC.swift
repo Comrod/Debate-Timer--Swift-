@@ -27,6 +27,9 @@ class TimerVC: UIViewController {
     var timercdString = String()
     //var timerStarted = false
     
+    //Alert for when timer is finished
+    let timerAlert = UIAlertController(title: "Speech Finished", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
+    
     //Timer Button Variables
     var timerButStartStr = "Start Timer"
     var timerButPauseStr = "Pause Timer"
@@ -203,6 +206,10 @@ class TimerVC: UIViewController {
             setTimerLabel() //Sets timer label minute place for the next speech
             setSpeechLabel()
             timerButton.setTitle(timerButStartStr, forState: UIControlState.Normal) //Sets timer button to be "Start Timer"
+            
+            //Show alert
+            timerAlert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(timerAlert, animated: true, completion: nil)
             
             NSLog("Timer has finished")
         }

@@ -31,9 +31,13 @@ class ViewController: UIViewController {
         Global.timerPaused = false
 
         //Delay Indicator for home skipping
+        delayIndicator.bounds = self.view.frame
         delayIndicator.center = self.view.center
+        delayIndicator.alpha = 0.5
+        delayIndicator.backgroundColor = UIColor(white: 0.0, alpha: 0.75)
         delayIndicator.hidesWhenStopped = true
-        delayIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+        delayIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
+        delayIndicator.transform = CGAffineTransformMakeScale(1.5, 1.5)//Scales up the delay indicator
     }
     
     override func viewDidAppear(animated: Bool)
