@@ -231,7 +231,7 @@ class PrepVC: UIViewController {
                 NSLog("Played sound")
                 
                 //Show Alert
-                var newTimerAlert = UIAlertView(title: "Timer Done", message: "Speech is finished", delegate: nil, cancelButtonTitle: "Ok")
+                var newTimerAlert = UIAlertView(title: "Timer Done", message: "Prep is finished", delegate: nil, cancelButtonTitle: "Ok")
                 newTimerAlert.show()
                 
                 NSLog("Top prep time finished")
@@ -258,7 +258,7 @@ class PrepVC: UIViewController {
                 NSLog("Played sound")
                 
                 //Show alert
-                var newTimerAlert = UIAlertView(title: "Timer Done", message: "Speech is finished", delegate: nil, cancelButtonTitle: "Ok")
+                var newTimerAlert = UIAlertView(title: "Timer Done", message: "Prep is finished", delegate: nil, cancelButtonTitle: "Ok")
                 newTimerAlert.show()
                 
                 NSLog("Bot prep time finished")

@@ -30,9 +30,6 @@ class TimerVC: UIViewController {
     //Object for playing sound
     var pSound = PlaySound()
     
-    //Alert for when timer is finished
-    let timerAlert = UIAlertController(title: "Timer done", message: "Speech is finished", preferredStyle: UIAlertControllerStyle.Alert)
-    
     //Timer Button Variables
     var timerButStartStr = "Start Timer"
     var timerButPauseStr = "Pause Timer"
@@ -123,6 +120,8 @@ class TimerVC: UIViewController {
             }
             else //Round is over because countercentiseconds will only be 0 when the last speech has finished
             {
+                var newTimerAlert = UIAlertView(title: "Round is Over", message: "Round is over, you've been sent back to the selection screen", delegate: nil, cancelButtonTitle: "Ok")
+                newTimerAlert.show()
                 performSegueWithIdentifier(segueHomeStr, sender: self)
             }
         }
