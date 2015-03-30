@@ -23,9 +23,14 @@ class PrepVC: UIViewController {
     var prepButPauseStr = "Pause"
     var prepButResumeStr = "Resume"
 
+    //Alert for when timer is finished
+    let timerAlert = UIAlertController(title: "Timer done", message: "Prep is finished", preferredStyle: UIAlertControllerStyle.Alert)
+
+    //Object for playing sound
+    var pSound = PlaySound()
+    
     //IB Outlets
     @IBOutlet weak var backButton: UIButton!
-    
     
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var topPrepTimeLbl: UILabel!
@@ -220,6 +225,17 @@ class PrepVC: UIViewController {
                 stopPrepTimer()
                 Global.topPrepStarted = false
                 Global.topPrepPaused = false
+                
+                //Play sound
+                pSound.playSound()
+                NSLog("Played sound")
+                
+                //Show alert
+                var alertAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
+                timerAlert.addAction(alertAction)
+                self.presentViewController(timerAlert, animated: true, completion:nil)
+                
+                
                 NSLog("Top prep time finished")
             }
         }
@@ -235,6 +251,16 @@ class PrepVC: UIViewController {
                 stopPrepTimer()
                 Global.botPrepStarted = false
                 Global.botPrepPaused = false
+                
+                //Play sound
+                pSound.playSound()
+                NSLog("Played sound")
+                
+                //Show alert
+                var alertAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
+                timerAlert.addAction(alertAction)
+                self.presentViewController(timerAlert, animated: true, completion:nil)
+                
                 NSLog("Bot prep time finished")
             }
         }

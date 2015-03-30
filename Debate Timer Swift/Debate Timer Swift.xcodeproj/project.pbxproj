@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2404DE8A1AC8F54D00B697DC /* alarm.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2404DE891AC8F54D00B697DC /* alarm.caf */; };
 		24402B2F1ABF30760061A876 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24402B2E1ABF30760061A876 /* iTunesArtwork@2x.png */; };
 		2448F3C31A857C1700AC748A /* PrepVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2448F3C21A857C1700AC748A /* PrepVC.swift */; };
 		2456AC881A89275100B22C89 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2456AC871A89275100B22C89 /* Global.swift */; };
 		247A2BB81A8A7C730021EC4C /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A2BB71A8A7C730021EC4C /* SettingsVC.swift */; };
+		24BE07191AC4BAA500229F38 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24BE07181AC4BAA500229F38 /* AudioToolbox.framework */; };
+		24BE071D1AC50E2000229F38 /* PlaySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BE071C1AC50E2000229F38 /* PlaySound.swift */; };
 		24C733D01A8169D500E2E035 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C733CF1A8169D500E2E035 /* AppDelegate.swift */; };
 		24C733D31A8169D500E2E035 /* Debate_Timer_Swift.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24C733D11A8169D500E2E035 /* Debate_Timer_Swift.xcdatamodeld */; };
 		24C733D51A8169D500E2E035 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C733D41A8169D500E2E035 /* ViewController.swift */; };
@@ -32,10 +35,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2404DE891AC8F54D00B697DC /* alarm.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = alarm.caf; sourceTree = "<group>"; };
 		24402B2E1ABF30760061A876 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		2448F3C21A857C1700AC748A /* PrepVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrepVC.swift; sourceTree = "<group>"; };
 		2456AC871A89275100B22C89 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		247A2BB71A8A7C730021EC4C /* SettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		24BE07181AC4BAA500229F38 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		24BE071C1AC50E2000229F38 /* PlaySound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaySound.swift; sourceTree = "<group>"; };
 		24C733CA1A8169D500E2E035 /* Debate Timer Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Debate Timer Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		24C733CE1A8169D500E2E035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24C733CF1A8169D500E2E035 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24BE07191AC4BAA500229F38 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +78,7 @@
 		24C733C11A8169D500E2E035 = {
 			isa = PBXGroup;
 			children = (
+				24BE07181AC4BAA500229F38 /* AudioToolbox.framework */,
 				24C733CC1A8169D500E2E035 /* Debate Timer Swift */,
 				24C733E51A8169D500E2E035 /* Debate Timer SwiftTests */,
 				24C733CB1A8169D500E2E035 /* Products */,
@@ -93,9 +101,11 @@
 				2456AC871A89275100B22C89 /* Global.swift */,
 				24C733D41A8169D500E2E035 /* ViewController.swift */,
 				24C733F61A816F4200E2E035 /* TimerVC.swift */,
+				24BE071C1AC50E2000229F38 /* PlaySound.swift */,
 				2448F3C21A857C1700AC748A /* PrepVC.swift */,
 				247A2BB71A8A7C730021EC4C /* SettingsVC.swift */,
 				24C733D61A8169D500E2E035 /* Main.storyboard */,
+				2404DE891AC8F54D00B697DC /* alarm.caf */,
 				24C733D91A8169D500E2E035 /* Images.xcassets */,
 				24C733DB1A8169D500E2E035 /* LaunchScreen.xib */,
 				24402B2E1ABF30760061A876 /* iTunesArtwork@2x.png */,
@@ -213,6 +223,7 @@
 			files = (
 				24C733D81A8169D500E2E035 /* Main.storyboard in Resources */,
 				24C733DD1A8169D500E2E035 /* LaunchScreen.xib in Resources */,
+				2404DE8A1AC8F54D00B697DC /* alarm.caf in Resources */,
 				24C733DA1A8169D500E2E035 /* Images.xcassets in Resources */,
 				24402B2F1ABF30760061A876 /* iTunesArtwork@2x.png in Resources */,
 			);
@@ -233,6 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24C733D51A8169D500E2E035 /* ViewController.swift in Sources */,
+				24BE071D1AC50E2000229F38 /* PlaySound.swift in Sources */,
 				24C733D31A8169D500E2E035 /* Debate_Timer_Swift.xcdatamodeld in Sources */,
 				2456AC881A89275100B22C89 /* Global.swift in Sources */,
 				24C733F71A816F4200E2E035 /* TimerVC.swift in Sources */,
@@ -367,6 +379,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -380,6 +393,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

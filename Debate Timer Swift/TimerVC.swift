@@ -17,7 +17,7 @@ class TimerVC: UIViewController {
     var policySpeeches: [String] = ["1AC", "CX", "1NC", "CX", "2AC", "CX", "2NC", "CX", "1NR", "1AR", "2NR", "2AR", "Round Finished"]
     var ldTimes: [Int] = [6, 3, 7, 3, 4, 6, 3, 0]
     var ldSpeeches: [String] = ["AC", "CX", "NC (1NR)", "CX", "1AR", "NR (2NR)", "2AR", "Round Finished"]
-    var pfdTimes: [Int] = [4, 4, 3, 4, 4, 3, 2, 2, 3, 2, 2, 0]
+    var pfdTimes: [Int] = [1, 4, 3, 4, 4, 3, 2, 2, 3, 2, 2, 0]
     var pfdSpeeches: [String] = ["Team A Constructive", "Team B Constructive", "Crossfire", "Team A Rebuttal", "Team B Rebuttal", "Crossfire", "Team A Summary", "Team B Summary", "Grand Crossfire", "Team A Final", "Team B Final", "Round Finished"]
     
     //Timer Variables
@@ -28,7 +28,7 @@ class TimerVC: UIViewController {
     //var timerStarted = false
     
     //Alert for when timer is finished
-    let timerAlert = UIAlertController(title: "Speech Finished", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
+    let timerAlert = UIAlertController(title: "Timer done", message: "Speech is finished", preferredStyle: UIAlertControllerStyle.Alert)
     
     //Timer Button Variables
     var timerButStartStr = "Start Timer"
@@ -38,7 +38,6 @@ class TimerVC: UIViewController {
     //Picker View
     var pickerData: [String] = Array()
     var isPickerShowing = Bool()
-    //var speechPicker = UIPickerView()
     
     //Other Variables
     var segueHomeStr = "segueToHome"
@@ -63,12 +62,8 @@ class TimerVC: UIViewController {
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-       
         
         NSLog("Debate chosen: \(Global.debateChosen), Speech counter: \(Global.speechCounter), Centiseconds: \(Global.counterCentiseconds)")
-        
-        //Example of singleton
-        //Singleton.sharedInstance.centiseconds = 2
         
         defaults.setBool(false, forKey: "isFirstLaunch")
         
@@ -98,11 +93,10 @@ class TimerVC: UIViewController {
             Global.botCounterCentiseconds = Global.basePrep*6000
         }
         
-        
-        
         //Sets picker data
         setPickerData()
         
+        //Sets labels
         setTimerLabel()
         setSpeechLabel()
         
@@ -113,8 +107,6 @@ class TimerVC: UIViewController {
         NSLog("Timer Started: \(Global.timerStarted)")
         
     }
-    
-    
     @IBAction func timerButTap(sender: AnyObject)
     {
 
@@ -207,9 +199,16 @@ class TimerVC: UIViewController {
             setSpeechLabel()
             timerButton.setTitle(timerButStartStr, forState: UIControlState.Normal) //Sets timer button to be "Start Timer"
             
-            //Show alert
-            timerAlert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(timerAlert, animated: true, completion: nil)
+            //Play sound and show alert
+            var pSound = PlaySound()
+            pSound.playSound()
+            NSLog("Played sound")
+            
+            var alertAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
+            timerAlert.addAction(alertAction)
+            self.presentViewController(timerAlert, animated: true, completion:nil)
+            
+            
             
             NSLog("Timer has finished")
         }
