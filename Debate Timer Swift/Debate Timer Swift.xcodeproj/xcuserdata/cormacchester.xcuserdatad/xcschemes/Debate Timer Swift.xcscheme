@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "24C733C91A8169D500E2E035"
-               BuildableName = "Debate Timer.app"
-               BlueprintName = "Debate Timer"
-               ReferencedContainer = "container:Debate Timer.xcodeproj">
+               BuildableName = "Debate Timer Swift.app"
+               BlueprintName = "Debate Timer Swift"
+               ReferencedContainer = "container:Debate Timer Swift.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "24C733E11A8169D500E2E035"
-               BuildableName = "Debate TimerTests.xctest"
-               BlueprintName = "Debate TimerTests"
-               ReferencedContainer = "container:Debate Timer.xcodeproj">
+               BuildableName = "Debate Timer SwiftTests.xctest"
+               BlueprintName = "Debate Timer SwiftTests"
+               ReferencedContainer = "container:Debate Timer Swift.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "24C733E11A8169D500E2E035"
-               BuildableName = "Debate TimerTests.xctest"
-               BlueprintName = "Debate TimerTests"
-               ReferencedContainer = "container:Debate Timer.xcodeproj">
+               BuildableName = "Debate Timer SwiftTests.xctest"
+               BlueprintName = "Debate Timer SwiftTests"
+               ReferencedContainer = "container:Debate Timer Swift.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "24C733C91A8169D500E2E035"
-            BuildableName = "Debate Timer.app"
-            BlueprintName = "Debate Timer"
-            ReferencedContainer = "container:Debate Timer.xcodeproj">
+            BuildableName = "Debate Timer Swift.app"
+            BlueprintName = "Debate Timer Swift"
+            ReferencedContainer = "container:Debate Timer Swift.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -72,14 +72,13 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "24C733C91A8169D500E2E035"
-            BuildableName = "Debate Timer.app"
-            BlueprintName = "Debate Timer"
-            ReferencedContainer = "container:Debate Timer.xcodeproj">
+            BuildableName = "Debate Timer Swift.app"
+            BlueprintName = "Debate Timer Swift"
+            ReferencedContainer = "container:Debate Timer Swift.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -91,14 +90,13 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "24C733C91A8169D500E2E035"
-            BuildableName = "Debate Timer.app"
-            BlueprintName = "Debate Timer"
-            ReferencedContainer = "container:Debate Timer.xcodeproj">
+            BuildableName = "Debate Timer Swift.app"
+            BlueprintName = "Debate Timer Swift"
+            ReferencedContainer = "container:Debate Timer Swift.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
