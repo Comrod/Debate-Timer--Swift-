@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Debate Timer Swift.xcodeproj">
+      location = "self:Debate Timer.xcodeproj">
    </FileRef>
 </Workspace>
