@@ -27,6 +27,9 @@ class TimerVC: UIViewController {
     var timercdString = String()
     //var timerStarted = false
     
+    //Object for playing sound
+    var pSound = PlaySound()
+    
     //Alert for when timer is finished
     let timerAlert = UIAlertController(title: "Timer done", message: "Speech is finished", preferredStyle: UIAlertControllerStyle.Alert)
     
@@ -200,15 +203,11 @@ class TimerVC: UIViewController {
             timerButton.setTitle(timerButStartStr, forState: UIControlState.Normal) //Sets timer button to be "Start Timer"
             
             //Play sound and show alert
-            var pSound = PlaySound()
             pSound.playSound()
             NSLog("Played sound")
             
-            var alertAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
-            timerAlert.addAction(alertAction)
-            self.presentViewController(timerAlert, animated: true, completion:nil)
-            
-            
+            var newTimerAlert = UIAlertView(title: "Timer Done", message: "Speech is finished", delegate: nil, cancelButtonTitle: "Ok")
+            newTimerAlert.show()
             
             NSLog("Timer has finished")
         }

@@ -23,9 +23,6 @@ class PrepVC: UIViewController {
     var prepButPauseStr = "Pause"
     var prepButResumeStr = "Resume"
 
-    //Alert for when timer is finished
-    let timerAlert = UIAlertController(title: "Timer done", message: "Prep is finished", preferredStyle: UIAlertControllerStyle.Alert)
-
     //Object for playing sound
     var pSound = PlaySound()
     
@@ -225,16 +222,17 @@ class PrepVC: UIViewController {
                 stopPrepTimer()
                 Global.topPrepStarted = false
                 Global.topPrepPaused = false
+                setTopPrepTimer()
+                setTopPrepTimerLabel()
+                topPrepButton.setTitle(prepButStartStr, forState: UIControlState.Normal)
                 
                 //Play sound
                 pSound.playSound()
                 NSLog("Played sound")
                 
-                //Show alert
-                var alertAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
-                timerAlert.addAction(alertAction)
-                self.presentViewController(timerAlert, animated: true, completion:nil)
-                
+                //Show Alert
+                var newTimerAlert = UIAlertView(title: "Timer Done", message: "Speech is finished", delegate: nil, cancelButtonTitle: "Ok")
+                newTimerAlert.show()
                 
                 NSLog("Top prep time finished")
             }
@@ -251,15 +249,17 @@ class PrepVC: UIViewController {
                 stopPrepTimer()
                 Global.botPrepStarted = false
                 Global.botPrepPaused = false
+                setBotPrepTimer()
+                setBotPrepTimerLabel()
+                botPrepButton.setTitle(prepButStartStr, forState: UIControlState.Normal)
                 
                 //Play sound
                 pSound.playSound()
                 NSLog("Played sound")
                 
                 //Show alert
-                var alertAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
-                timerAlert.addAction(alertAction)
-                self.presentViewController(timerAlert, animated: true, completion:nil)
+                var newTimerAlert = UIAlertView(title: "Timer Done", message: "Speech is finished", delegate: nil, cancelButtonTitle: "Ok")
+                newTimerAlert.show()
                 
                 NSLog("Bot prep time finished")
             }

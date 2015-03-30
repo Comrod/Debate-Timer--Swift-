@@ -21,5 +21,10 @@ class PlaySound
         AudioServicesPlaySystemSound(timerSoundID)
         NSLog("Played sound")
     }
+    
+    func stopSound()
+    {
+        AudioServicesDisposeSystemSoundID(timerSoundID)
+    }
 }
 
