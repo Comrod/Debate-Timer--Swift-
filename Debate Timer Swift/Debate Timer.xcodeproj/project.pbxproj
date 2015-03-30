@@ -42,7 +42,7 @@
 		247A2BB71A8A7C730021EC4C /* SettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		24BE07181AC4BAA500229F38 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		24BE071C1AC50E2000229F38 /* PlaySound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaySound.swift; sourceTree = "<group>"; };
-		24C733CA1A8169D500E2E035 /* Debate Timer Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Debate Timer Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		24C733CA1A8169D500E2E035 /* Debate Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Debate Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		24C733CE1A8169D500E2E035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24C733CF1A8169D500E2E035 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24C733D21A8169D500E2E035 /* Debate_Timer_Swift.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Debate_Timer_Swift.xcdatamodel; sourceTree = "<group>"; };
@@ -50,7 +50,7 @@
 		24C733D71A8169D500E2E035 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		24C733D91A8169D500E2E035 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		24C733DC1A8169D500E2E035 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		24C733E21A8169D500E2E035 /* Debate Timer SwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Debate Timer SwiftTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		24C733E21A8169D500E2E035 /* Debate TimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Debate TimerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		24C733E71A8169D500E2E035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24C733E81A8169D500E2E035 /* Debate_Timer_SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debate_Timer_SwiftTests.swift; sourceTree = "<group>"; };
 		24C733F61A816F4200E2E035 /* TimerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimerVC.swift; path = ../TimerVC.swift; sourceTree = "<group>"; };
@@ -79,8 +79,8 @@
 			isa = PBXGroup;
 			children = (
 				24BE07181AC4BAA500229F38 /* AudioToolbox.framework */,
-				24C733CC1A8169D500E2E035 /* Debate Timer Swift */,
-				24C733E51A8169D500E2E035 /* Debate Timer SwiftTests */,
+				24C733CC1A8169D500E2E035 /* Debate Timer */,
+				24C733E51A8169D500E2E035 /* Debate Timer Tests */,
 				24C733CB1A8169D500E2E035 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -88,13 +88,13 @@
 		24C733CB1A8169D500E2E035 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				24C733CA1A8169D500E2E035 /* Debate Timer Swift.app */,
-				24C733E21A8169D500E2E035 /* Debate Timer SwiftTests.xctest */,
+				24C733CA1A8169D500E2E035 /* Debate Timer.app */,
+				24C733E21A8169D500E2E035 /* Debate TimerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		24C733CC1A8169D500E2E035 /* Debate Timer Swift */ = {
+		24C733CC1A8169D500E2E035 /* Debate Timer */ = {
 			isa = PBXGroup;
 			children = (
 				24C733CF1A8169D500E2E035 /* AppDelegate.swift */,
@@ -112,6 +112,7 @@
 				24C733D11A8169D500E2E035 /* Debate_Timer_Swift.xcdatamodeld */,
 				24C733CD1A8169D500E2E035 /* Supporting Files */,
 			);
+			name = "Debate Timer";
 			path = "Debate Timer Swift";
 			sourceTree = "<group>";
 		};
@@ -123,12 +124,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		24C733E51A8169D500E2E035 /* Debate Timer SwiftTests */ = {
+		24C733E51A8169D500E2E035 /* Debate Timer Tests */ = {
 			isa = PBXGroup;
 			children = (
 				24C733E81A8169D500E2E035 /* Debate_Timer_SwiftTests.swift */,
 				24C733E61A8169D500E2E035 /* Supporting Files */,
 			);
+			name = "Debate Timer Tests";
 			path = "Debate Timer SwiftTests";
 			sourceTree = "<group>";
 		};
@@ -143,9 +145,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		24C733C91A8169D500E2E035 /* Debate Timer Swift */ = {
+		24C733C91A8169D500E2E035 /* Debate Timer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 24C733EC1A8169D500E2E035 /* Build configuration list for PBXNativeTarget "Debate Timer Swift" */;
+			buildConfigurationList = 24C733EC1A8169D500E2E035 /* Build configuration list for PBXNativeTarget "Debate Timer" */;
 			buildPhases = (
 				24C733C61A8169D500E2E035 /* Sources */,
 				24C733C71A8169D500E2E035 /* Frameworks */,
@@ -155,14 +157,14 @@
 			);
 			dependencies = (
 			);
-			name = "Debate Timer Swift";
+			name = "Debate Timer";
 			productName = "Debate Timer Swift";
-			productReference = 24C733CA1A8169D500E2E035 /* Debate Timer Swift.app */;
+			productReference = 24C733CA1A8169D500E2E035 /* Debate Timer.app */;
 			productType = "com.apple.product-type.application";
 		};
-		24C733E11A8169D500E2E035 /* Debate Timer SwiftTests */ = {
+		24C733E11A8169D500E2E035 /* Debate TimerTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 24C733EF1A8169D500E2E035 /* Build configuration list for PBXNativeTarget "Debate Timer SwiftTests" */;
+			buildConfigurationList = 24C733EF1A8169D500E2E035 /* Build configuration list for PBXNativeTarget "Debate TimerTests" */;
 			buildPhases = (
 				24C733DE1A8169D500E2E035 /* Sources */,
 				24C733DF1A8169D500E2E035 /* Frameworks */,
@@ -173,9 +175,9 @@
 			dependencies = (
 				24C733E41A8169D500E2E035 /* PBXTargetDependency */,
 			);
-			name = "Debate Timer SwiftTests";
+			name = "Debate TimerTests";
 			productName = "Debate Timer SwiftTests";
-			productReference = 24C733E21A8169D500E2E035 /* Debate Timer SwiftTests.xctest */;
+			productReference = 24C733E21A8169D500E2E035 /* Debate TimerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -197,7 +199,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 24C733C51A8169D500E2E035 /* Build configuration list for PBXProject "Debate Timer Swift" */;
+			buildConfigurationList = 24C733C51A8169D500E2E035 /* Build configuration list for PBXProject "Debate Timer" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -210,8 +212,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				24C733C91A8169D500E2E035 /* Debate Timer Swift */,
-				24C733E11A8169D500E2E035 /* Debate Timer SwiftTests */,
+				24C733C91A8169D500E2E035 /* Debate Timer */,
+				24C733E11A8169D500E2E035 /* Debate TimerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -267,7 +269,7 @@
 /* Begin PBXTargetDependency section */
 		24C733E41A8169D500E2E035 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 24C733C91A8169D500E2E035 /* Debate Timer Swift */;
+			target = 24C733C91A8169D500E2E035 /* Debate Timer */;
 			targetProxy = 24C733E31A8169D500E2E035 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -375,10 +377,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = "Debate Timer Swift/Info.plist";
+				INFOPLIST_FILE = "Debate Timer/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PRODUCT_NAME = "Debate Timer";
+				PROVISIONING_PROFILE = "ca8d71d1-5036-4873-a0c2-58bcbf2d3d68";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -389,10 +392,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = "Debate Timer Swift/Info.plist";
+				INFOPLIST_FILE = "Debate Timer/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PRODUCT_NAME = "Debate Timer";
+				PROVISIONING_PROFILE = "ca8d71d1-5036-4873-a0c2-58bcbf2d3d68";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -411,7 +415,7 @@
 				);
 				INFOPLIST_FILE = "Debate Timer SwiftTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Debate TimerTests";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Debate Timer Swift.app/Debate Timer Swift";
 			};
 			name = Debug;
@@ -426,7 +430,7 @@
 				);
 				INFOPLIST_FILE = "Debate Timer SwiftTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Debate TimerTests";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Debate Timer Swift.app/Debate Timer Swift";
 			};
 			name = Release;
@@ -434,7 +438,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		24C733C51A8169D500E2E035 /* Build configuration list for PBXProject "Debate Timer Swift" */ = {
+		24C733C51A8169D500E2E035 /* Build configuration list for PBXProject "Debate Timer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				24C733EA1A8169D500E2E035 /* Debug */,
@@ -443,7 +447,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		24C733EC1A8169D500E2E035 /* Build configuration list for PBXNativeTarget "Debate Timer Swift" */ = {
+		24C733EC1A8169D500E2E035 /* Build configuration list for PBXNativeTarget "Debate Timer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				24C733ED1A8169D500E2E035 /* Debug */,
@@ -452,7 +456,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		24C733EF1A8169D500E2E035 /* Build configuration list for PBXNativeTarget "Debate Timer SwiftTests" */ = {
+		24C733EF1A8169D500E2E035 /* Build configuration list for PBXNativeTarget "Debate TimerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				24C733F01A8169D500E2E035 /* Debug */,
