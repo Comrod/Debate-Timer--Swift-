@@ -112,7 +112,6 @@
 				24C733D11A8169D500E2E035 /* Debate_Timer_Swift.xcdatamodeld */,
 				24C733CD1A8169D500E2E035 /* Supporting Files */,
 			);
-			name = "Debate Timer";
 			path = "Debate Timer";
 			sourceTree = "<group>";
 		};
