@@ -13,6 +13,7 @@ class PrepVC: UIViewController {
     //Variables
     var segueTimerStr = "seguePrepToTimer"
     var topTimerSelected = Bool()
+    var styleLblStr = String()
     
     //Prep Timer
     var prepTimer = NSTimer()
@@ -28,6 +29,7 @@ class PrepVC: UIViewController {
     
     //IB Outlets
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var styleLabel: UILabel!
     
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var topPrepTimeLbl: UILabel!
@@ -56,6 +58,22 @@ class PrepVC: UIViewController {
             topLabel.text = "Pro Prep Time"
             botLabel.text = "Con Prep Time"
         }
+        
+        if (Global.debateChosen == 0)
+        {
+            styleLblStr = "Policy Debate"
+            
+        }
+        else if (Global.debateChosen == 1)
+        {
+            styleLblStr = "Lincoln-Douglas Debate"
+        }
+        else if (Global.debateChosen == 2)
+        {
+            styleLblStr = "Public Forum Debate"
+        }
+
+        styleLabel.text = styleLblStr
         
         //Hardcoding right now, will fix later
         if (!Global.topPrepStarted)

@@ -13,7 +13,7 @@ class SettingsVC: UIViewController {
     //Variables
     var segueSettingsToTimer = "segueSettingsToTimer"
     let defaults = NSUserDefaults.standardUserDefaults()
-
+    var styleLblStr = String()
     
     //IB Outlets
     @IBOutlet weak var centisecondSegControl: UISegmentedControl!
@@ -22,6 +22,7 @@ class SettingsVC: UIViewController {
     @IBOutlet weak var prepStepper: UIStepper!
     @IBOutlet weak var prepLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var styleLabel: UILabel!
     
     
     override func viewDidLoad()
@@ -49,6 +50,21 @@ class SettingsVC: UIViewController {
         prepStepper.value = Double(Global.basePrep)
         prepLabel.text = String(Global.basePrep)
         
+        if (Global.debateChosen == 0)
+        {
+            styleLblStr = "Policy Debate"
+            
+        }
+        else if (Global.debateChosen == 1)
+        {
+            styleLblStr = "Lincoln-Douglas Debate"
+        }
+        else if (Global.debateChosen == 2)
+        {
+            styleLblStr = "Public Forum Debate"
+        }
+        
+        styleLabel.text = styleLblStr
         
     }
     
