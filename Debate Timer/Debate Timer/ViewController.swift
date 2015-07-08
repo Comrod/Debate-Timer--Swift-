@@ -113,7 +113,7 @@ class ViewController: UIViewController {
             
             
             //Pass variables between View Controllers
-            let tVC = segue.destinationViewController as TimerVC
+            let tVC = segue.destinationViewController as! TimerVC
             
         }
     }

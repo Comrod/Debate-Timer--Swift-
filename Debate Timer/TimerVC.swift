@@ -419,7 +419,7 @@ class TimerVC: UIViewController {
             stopTimer()
             
             //Pass variables between View Controllers
-            let vC = segue.destinationViewController as ViewController
+            let vC = segue.destinationViewController as! ViewController
             
         }
         else if (segue.identifier == "segueToPrep") //If going to prep vc
@@ -430,7 +430,7 @@ class TimerVC: UIViewController {
                 stopTimer()
             }
             
-            let pVC = segue.destinationViewController as PrepVC
+            let pVC = segue.destinationViewController as! PrepVC
             
         }
         else if (segue.identifier == "segueToSettings")
