@@ -31,8 +31,6 @@ struct Global {
     //SettingsVC
     static var isCenti = Bool()
     static var basePrep = Int()
-    static var openedBefore = Bool()
     static var primaryStyle = Int()
     static var isHomeSkip = Bool()
-    //static var appAlreadyStarted = Bool()
 }

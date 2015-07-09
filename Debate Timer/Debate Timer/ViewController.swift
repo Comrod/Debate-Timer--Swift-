@@ -69,31 +69,23 @@ class ViewController: UIViewController {
     @IBAction func policyButTap(sender: AnyObject)
     {
         Global.debateChosen = 0
-        
-        if (!Global.openedBefore)
-        {
-            Global.basePrep = 5
-        }
+        Global.basePrep = 8
+        NSLog("Set base prep to: \(Global.basePrep)")
         performSegueWithIdentifier(Global.segueString, sender: self)
     }
     @IBAction func ldButTap(sender: AnyObject)
     {
         Global.debateChosen = 1
-        if (!Global.openedBefore)
-        {
-            Global.basePrep = 4
-        }
+        Global.basePrep = 4
+        NSLog("Set base prep to: \(Global.basePrep)")
         performSegueWithIdentifier(Global.segueString, sender: self)
     }
     
     @IBAction func pfdButTap(sender: AnyObject)
     {
         Global.debateChosen = 2
-        
-        if (!Global.openedBefore)
-        {
-            Global.basePrep = 2
-        }
+        Global.basePrep = 2
+        NSLog("Set base prep to: \(Global.basePrep)")
         performSegueWithIdentifier(Global.segueString, sender: self)
     }
     
@@ -107,10 +99,7 @@ class ViewController: UIViewController {
         
         
         if (segue.identifier == "segueToTimer")
-        {
-            defaults.setBool(true, forKey: "openedBefore")
-            Global.openedBefore = defaults.boolForKey("openedBefore")
-            
+        {            
             
             //Pass variables between View Controllers
             let tVC = segue.destinationViewController as! TimerVC
